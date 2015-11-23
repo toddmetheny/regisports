@@ -1,0 +1,43 @@
+<div class="container-fluid events-container-no-pad">
+  <%= image_tag(@event.imagebig, class: 'img-responsive') %>
+</div>
+<div class="container-fluid events-container">
+  <div class="row">
+
+    <div class="col-sm-6 col-md-6 col-lg-4 eventBanner">
+        <div class="panel">
+          <div class="panel-heading">
+            <%= image_tag(@event.image, class: 'img-responsive') %>
+          </div>
+          <div class="panel-body">
+            <h4>Event Details:</h4>
+            <h5>Event Organizer: <%= @event.organizer %></h5>
+            <h5>Contact information: Phone: <%= @event.phone %></h5>
+            <h5>Email: <%= @event.email %></h5>
+            <h5>Website: <%= @event.website %> </h5>
+            <h5>Location: <%= @event.venue %></h5>
+            <h5><%= @event.address %> <%= @event.city %>, <%= @event.state %> <%= @event.zipcode %></h5>
+          </div>
+          <div class="panel-footer text-center">
+            <h1><%= link_to 'Register', event_options_path(@event), class: 'btn btn-lg btn-primary' %></h1>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-8 eventInfo">
+    <span><h2><%= @event.title %></h2></span>
+    <span><h2><%= @event.date.strftime('%b %d') %> <%= @event.startTime %> - <%= @event.city %> <%= @event.state %></h2></span>
+    <p><%=raw @event.longdescription %></p>
+  </div>
+    <div class="col-sm-6 col-md-6 col-lg-4" >
+
+    </div>
+  </div>
+  <br>
+  <div class="row">
+          <div class="col-sm-12">
+      
+    </div>
+  </div>  
+ 
+</div>
+

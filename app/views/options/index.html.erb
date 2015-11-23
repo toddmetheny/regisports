@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<div class="container-fluid events-container">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-7 eventInfo">
+      <span><h2><%= @event.title %></h2></span>
+      <span><h2><%= @event.date.strftime('%b %d') %> <%= @event.startTime %> - <%= @event.city %> <%= @event.state %></h2></span>
+      <p><%=raw @event.description %></p>
+      <br>
+      <h4>Event Details:</h4>
+      <h5>Event Organizer: <%= @event.organizer %></h5>
+      <h5>Contact information: Phone: <%= @event.phone %></h5>
+      <h5>Email: <%= @event.email %> </h5>
+      <h5>Website: <%= @event.website %> </h5>
+      <h5>Location: <%= @event.venue %></h5>
+      <h5><%= @event.address %> <%= @event.city %>, <%= @event.state %> <%= @event.zipcode %></h5>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-4 col-lg-offset-1 eventBanner">
+      <%= image_tag(@event.image, class: 'img-responsive') %>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-12"> <h2>Registration Options: </h2></div>
+  </div>
+  <% @options.each_slice(1) do |option| %>
+    <div class="panel items-panel"> 
+      <% option.each do |item| %>
+          <div class="panel-body">
+            <h3><%= item.title %> | Price: <%= number_to_currency(item.price) %></h3>
+             <p>This price will change on: <%= item.saleEnd.strftime('%m/%d') %></p>
+            <h3>Service Fee: <%= number_to_currency(item.fee) %></h3>              
+            <p><%= item.description %></p>
+          </div>
+          <div class="panel-footer">
+            <%= link_to 'Select', event_option_path(@event,option), :class => 'btn btn-lg btn-primary' %>
+          </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Option', new_event_option_path %>

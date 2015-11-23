@@ -1,0 +1,48 @@
+<%= form_for([@event,@option]) do |f| %>
+  <% if @option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@option.errors.count, "error") %> prohibited this option from being saved:</h2>
+
+      <ul>
+      <% @option.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category %><br>
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :saleEnd %><br>
+    <%= f.date_select :saleEnd, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %><br>
+    <%= f.text_field :price, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fee %><br>
+    <%= f.text_field :fee, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control ckeditor" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :promocode %><br>
+    <%= f.text_field :promocode, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    Registration Option for event:<%= @event.title %><br>
+    Event Id: <%= f.text_field :event_id, value:@event.id, readonly: 'readonly', maxlength: 3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", :class => "btn btn-default"  %>
+  </div>
+<% end %>

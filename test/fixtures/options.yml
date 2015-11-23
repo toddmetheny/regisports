@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  category: MyString
+  saleEnd: 2015-11-21
+  price: 9.99
+  fee: 9.99
+  description: MyText
+  promocode: MyString
+  event_id: 
+
+two:
+  title: MyString
+  category: MyString
+  saleEnd: 2015-11-21
+  price: 9.99
+  fee: 9.99
+  description: MyText
+  promocode: MyString
+  event_id: 

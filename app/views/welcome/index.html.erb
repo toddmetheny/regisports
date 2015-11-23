@@ -1,0 +1,30 @@
+<div class="container-fluid homePageSlider">
+<img class="img-responsive"src="assets/ekam-sports-running2100x965.jpg">
+</div>
+
+<% @events.each do |event| %>
+<div class="container-fluid events-container">
+	<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-7 eventInfo">
+			<span><h2><%= event.title %></h2></span>
+			<span><h2><%= event.date.strftime('%b %d') %>, <%= event.city %> <%= event.state %></h2></span>
+			<p><%=raw event.description %></p>
+			<%= link_to 'Details', event_path(event), class: 'btn btn-primary btn-lg' %>
+		</div>
+		<div class="col-sm-6 col-md-6 col-lg-4 col-lg-offset-1 eventBanner">
+			<%= image_tag(event.image, class: 'img-responsive') %>
+<!-- 			<img class="img-responsive"src="assets/5k-Carnival-400x250.jpg"> -->
+		</div>
+	</div>
+</div>
+<% end %>
+<div class="container-fluid ekam-info-container">
+	<div class="row">
+		<div class="col-md-12">
+		<span><h2>Simple and secure sporting event registration</h2></span>
+		<p>We build custom solutions for event registrations. 
+Want to know more about how to use our registration system for your events?</p>
+<a class="btn btn-primary btn-lg" type="submit" href="individual.html">Read More</a>
+		</div>
+	</div>
+</div>

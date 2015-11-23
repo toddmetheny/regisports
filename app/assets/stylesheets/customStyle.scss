@@ -1,0 +1,249 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+/*	font-family: 'Roboto Condensed', sans-serif;*/
+}
+
+.navbar{
+	margin-bottom: 0;
+}
+.navbar-default{
+
+	background-color: #fdfdfd;
+}
+.navbar-brand{
+	height: 60px;
+
+}
+.flash{
+	padding-top: 10px;
+}
+.btn-primary{
+
+	background-color: #ec0000;
+	border-color: #fff;
+	color:#fff;
+}
+.btn-primary:hover{
+
+	background-color: #2b2b2b;
+	border-color: #fff;
+}
+.btn-primary a:visited{
+	border-color: #fff;
+}
+.btn-primary:focus{
+	background-color: #434343;
+
+}
+.btn-primary:active:focus{
+	background-color: #434343;
+}
+.addForm{
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+}
+.navContainer{
+	border-bottom: solid;
+	border-color: #f5f5f5;
+	border-width: 2px;
+}
+.top-Nav{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-left: 100px;
+}
+.topLogo{
+	text-align: center;
+	vertical-align: middle;
+}
+.homePageSlider{
+	padding-left: 0;
+	padding-right: 0;
+	width: 100%;
+}
+.main-container{
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 20px 0 0 20px;
+	font-weight: 100;
+	font-size: 1.5em;
+	max-width:1200px;
+}
+.items-panel{
+	margin-top:20px;
+}
+/* events-container Class Shared with Register Page*/
+.events-container{
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #f0f0f0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.center-container {
+	max-width: 1200px;
+}
+
+.events-container-no-pad{
+	max-width: 1200px;
+	padding: 0;
+}
+.events-container .row{
+	margin-right: 0;
+	margin-left: 0;
+}
+.eventInfo{
+	box-sizing: border-box;
+	padding: 20px;
+}
+.eventInfo h2, h4{
+	color: #2b2b2b;
+	margin-top: 10px;
+}
+.eventInfo h2, h4{
+	color: #2b2b2b;
+}
+.eventBanner{
+	box-sizing: border-box;
+	padding-top: 20px;
+	padding-bottom: 20px
+}
+.eventBanner img{
+	border-style: solid;
+	border-color: #c2c2c2;
+	border-width: 1px;
+}
+.ekam-info-container{
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	text-align: center;
+}
+.footer{
+	background-color: #f0f0f0;
+	width: 100%;
+	padding-top: 20px;
+	margin-top: 20px;
+}
+.footerLine{
+	height:2px;
+	background-color: #ec0000;
+
+}
+.footerInfo{
+	max-width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+}
+.copyright{
+	min-height: 80px;
+	margin-top: 30px;
+	color: #7d7d7d;
+}
+
+/* END HOME PAGE STYLES */
+
+
+/* BEGIN EVENT PAGE */
+.divider{
+	min-height: 2px;
+	width:100%;
+	background-color: #a5a5a5;
+	margin:20px 0 20px 0;
+}
+.registerHomePageSlider{
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.selectRegistrationContainer{
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #f0f0f0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.selectRegistrationContainer .row{
+
+
+}
+.selectRegistration{
+	box-sizing:border-box;
+	padding: 20px;
+	border-right: solid;
+	border-top-style: solid;
+	border-color: #fff;
+	border-width: 2px;
+}
+.selectRegistration h2, h4{
+	color: #2b2b2b;
+	margin-top: 10px;
+}
+
+/* BEGIN INDIVIDUAL REGISTRATION */
+.control-label{
+	color:#da9500;
+}
+
+.registrationContianer{
+	max-width: 1200px;
+	margin: 0 auto;	
+	padding: 0;
+}
+.eventDetails{
+	background-color: #f0f0f0;
+	box-sizing:border-box;
+	padding: 10px;
+	border-right: solid;
+	border-top-style: solid;
+	border-color: #fff;
+	border-width: 2px;
+}
+.formContainer{
+	box-sizing:border-box;
+	padding: 20px;
+}
+.participantheader{
+	background-color: #f0b535;
+	color:#fff;
+	font-size: 1.5em;
+	box-sizing:border-box;
+	border-radius: 5px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+legend{
+	border-bottom: none;
+	margin-bottom: 0;
+	color:#fff;
+}
+.clonedInput{
+	margin-top: 30px;
+}
+
+.clonedInput + .formGroup{
+	margin-top: 20px;
+}
+
+.formContainer .form-horizontal .checkbox{
+	margin: 1px 0 1px 0;
+}
+
+.priceHeader{
+	font-size: 1.5em;
+	color: #f0b535;
+	margin: 20px 0 20px 0;
+}
+/*.copyBillingInfo{
+	margin: 10px 0 10px 0;
+
+}*/
+.copyBillingInfo .btn{
+	margin-bottom: 20px;
+	margin-left: 148px;	
+}

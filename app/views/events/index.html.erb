@@ -22,7 +22,7 @@
   </thead>
 
   <tbody>
-    <% @events.each_slice(3) do |event| %>
+    <% @events.each do |event|  %>
       <tr>
         <td><%= link_to (event.title), event %></td>
         <td><%= event.date.strftime('%b %d %y') %></td>

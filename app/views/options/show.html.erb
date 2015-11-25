@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container-fluid events-container">
   <div class="row">
     <div class="col-sm-12 eventInfo">
-      <span><h2><%= @option.title %></h2></span>
+      <span><h2>You've chosen: <%= @option.title %> registration.  Please review and continue.</h2></span>
       <span><h2>Sale Ends: <%= @option.saleEnd.strftime('%b %d') %></h2></span>
       <p><%=raw @option.description %></p>
       <h5>Price: <%= @option.price %></h5>
@@ -12,7 +10,8 @@
       <h5>Event: <%= @option.event.title %> </h5>
     </div>
     <div class="col-sm-12 eventBanner">
-      <%= link_to 'Edit', edit_event_option_path %> |
+      <%= link_to 'Register', new_event_option_registration_path(@event, @option), :class => "btn btn-lg btn-primary" %>
+      <br> 
       <%= link_to 'Back', event_options_path %>
     </div>
   </div>

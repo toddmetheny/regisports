@@ -3,7 +3,6 @@ class WelcomeController < ApplicationController
 	def index
 		@events = Event.all
 		@registrations = Registration.all
-		@option = @event.option
 	end
 
 	def show

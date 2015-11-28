@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :events do
     resources :options do
       resources :registrations
-    end
-  end 
+    end 
+  end
 
   resources :photos
 

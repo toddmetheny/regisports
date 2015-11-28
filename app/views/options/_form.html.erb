@@ -39,9 +39,10 @@
     <%= f.text_field :promocode, class: "form-control" %>
   </div>
   <div class="form-group">
-    Registration Option for event:<%= @event.title %><br>
-    Event Id: <%= f.text_field :event_id, value:@event.id, readonly: 'readonly', maxlength: 3 %>
+  <%= f.label :event_id %><br>
+  <%= f.select :event_id, options_from_collection_for_select(@events, "id", "title") %>
   </div>
+
   <div class="actions">
     <%= f.submit "Submit", :class => "btn btn-default"  %>
   </div>

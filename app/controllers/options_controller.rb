@@ -4,41 +4,37 @@ class OptionsController < ApplicationController
   # GET /options
   # GET /options.json
   def index
-    @event = Event.find(params[:event_id])
-    @options = @event.options
-
+    @options = Option.all
   end
 
   # GET /options/1
   # GET /options/1.json
   def show
-    puts params.inspect
-    puts params[:option_id]
-    @event = Event.find(params[:event_id])
+
     @option = Option.find(params[:id])
+    @registrations = @option.registrations
   end
 
   # GET /options/new
   def new
-    @event = Event.find(params[:event_id])
+    @events = Event.all
     @option = Option.new
   end
 
   # GET /options/1/edit
   def edit
-    @event = Event.find(params[:event_id])
-    @option = Option.find(params[:id])
+    @events = Event.all
   end
 
   # POST /options
   # POST /options.json
   def create
-    @event = Event.find(params[:event_id])
+    @events = Event.all
     @option = Option.new(option_params)
 
     respond_to do |format|
       if @option.save
-        format.html { redirect_to event_options_path, notice: 'Option was successfully created.' }
+        format.html { redirect_to welcome_path, notice: 'Option was successfully created.' }
         format.json { render :show, status: :created, location: @option }
       else
         format.html { render :new }
@@ -52,7 +48,7 @@ class OptionsController < ApplicationController
   def update
     respond_to do |format|
       if @option.update(option_params)
-        format.html { redirect_to event_options_path, notice: 'Option was successfully updated.' }
+        format.html { redirect_to @option, notice: 'Option was successfully updated.' }
         format.json { render :show, status: :ok, location: @option }
       else
         format.html { render :edit }

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :events do
-    resources :options do
-      resources :registrations
-    end 
+  resources :events
+  resources :options do
+      resources :registrations, only: [:new, :create, :index]
   end
+  resources :registrations, only: [ :show, :edit, :update, :destroy]
 
-  resources :photos
 
   get 'welcome' => 'welcome#index'
   root 'welcome#index'

@@ -19,7 +19,6 @@
             <h5><%= @event.address %> <%= @event.city %>, <%= @event.state %> <%= @event.zipcode %></h5>
           </div>
           <div class="panel-footer text-center">
-            <h1><%= link_to 'Register', event_options_path(@event), class: 'btn btn-lg btn-primary' %></h1>
           </div>
         </div>
     </div>
@@ -29,15 +28,36 @@
     <p><%=raw @event.longdescription %></p>
   </div>
     <div class="col-sm-6 col-md-6 col-lg-4" >
-
     </div>
   </div>
   <br>
-  <div class="row">
-          <div class="col-sm-12">
-      
+  
+  <% @options.each_slice(1) do |option| %>
+    <div class="panel items-panel"> 
+      <% option.each do |item| %>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h2><%= item.title %></h2>
+                <h4>Price: <%= number_to_currency(item.price) %> </h4>
+                <h4>Service Fee: <%= number_to_currency(item.fee) %></h4>
+              </div>
+              <div class="col-sm-6 text-left">
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                 <p><%= raw item.description %></p>   
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%= link_to 'Select', option_path(option), :class => 'btn btn-lg btn-primary' %>
+          </div>
+      <% end %>
     </div>
-  </div>  
+  <% end %>
  
 </div>
 

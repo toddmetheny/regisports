@@ -1,18 +1,20 @@
-<div class="container-fluid events-container">
+<div class="container-fluid ">
   <div class="row">
-    <div class="col-sm-12 eventInfo">
-      <span><h2>You've chosen: <%= @option.title %> registration.  Please review and continue.</h2></span>
-      <span><h2>Sale Ends: <%= @option.saleEnd.strftime('%b %d') %></h2></span>
-      <p><%=raw @option.description %></p>
-      <h5>Price: <%= @option.price %></h5>
-      <h5>Fee: <%= @option.fee %></h5>
-      <h5>Promocode: <%= @option.promocode %> </h5>
-      <h5>Event: <%= @option.event.title %> </h5>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 eventInfo">
+        <div class="col-sm-12">
+          <span class="text-center uppercase primary-color"><p class="text-center">Please review and continue.</p></span>
+          <h2><%= @option.title %></h2>
+          <p><%=raw @option.description %></p>
+        </div>
+        <div class="col-sm-12">
+          <h4>Price: <%= number_to_currency(@option.price) %></h4>
+          <h4>Fee: <%= number_to_currency(@option.fee) %></h4>
+          <h4>Event: <%= @option.event.title %> </h4>
+          <br>
+          <%= link_to 'Next Step >', new_option_registration_path(@option), :class => "btn btn-lg btn-primary" %>
+        </div>
     </div>
-    <div class="col-sm-12 eventBanner">
-      <%= link_to 'Register', new_event_option_registration_path(@event, @option), :class => "btn btn-lg btn-primary" %>
-      <br> 
-      <%= link_to 'Back', event_options_path %>
-    </div>
+    <div class="col-sm-2"></div>
   </div>
 </div>

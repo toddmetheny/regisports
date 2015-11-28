@@ -14,7 +14,6 @@ class RegistrationsController < ApplicationController
 
   # GET /registrations/new
   def new
-    @event = Event.find(params[:event_id])
     @option = Option.find(params[:option_id])
     @registration = Registration.new
   end

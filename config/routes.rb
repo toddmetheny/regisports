@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :events
   resources :options do
       resources :reservations, only: [:new, :create, :index]
   end
   resources :reservations, only: [ :show, :edit, :update, :destroy]
-
+  
 
   get 'welcome' => 'welcome#index'
   root 'welcome#index'

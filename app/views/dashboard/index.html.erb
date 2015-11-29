@@ -89,16 +89,16 @@
 			<th>event option</th>
 			<th>manage</th>
 		</tr>
-		<% @registrations.each do |registration| %>
+		<% @reservations.each do |reservation| %>
 			<tr>			
-			<td><%= registration.name %></td>
-			<td><%= registration.lastname %></td>
-			<td><%= registration.email %></td>
-			<td><%= registration.phone %></td>
-			<td><%= registration.option.title %></td>
-			<td><%= link_to 'details', registration %> |
-				<%= link_to 'edit', edit_registration_path(registration) %> |
-				<%= link_to 'delete', registration_path(registration), method: :delete, data: { confirm: 'Are you sure?' } %>
+			<td><%= reservation.name %></td>
+			<td><%= reservation.lastname %></td>
+			<td><%= reservation.email %></td>
+			<td><%= reservation.phone %></td>
+			<td><%= reservation.option.title %></td>
+			<td><%= link_to 'details', reservation %> |
+				<%= link_to 'edit', edit_reservation_path(reservation) %> |
+				<%= link_to 'delete', reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
 			</td>
 			</td>
 			</tr>

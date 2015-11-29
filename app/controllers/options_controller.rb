@@ -12,7 +12,7 @@ class OptionsController < ApplicationController
   def show
 
     @option = Option.find(params[:id])
-    @registrations = @option.registrations
+    @reservations = @option.reservations
   end
 
   # GET /options/new

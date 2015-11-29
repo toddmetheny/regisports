@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+
   resources :events
   resources :options do
-      resources :registrations, only: [:new, :create, :index]
+      resources :reservations, only: [:new, :create, :index]
   end
-  resources :registrations, only: [ :show, :edit, :update, :destroy]
+  resources :reservations, only: [ :show, :edit, :update, :destroy]
 
 
   get 'welcome' => 'welcome#index'
   root 'welcome#index'
+  get 'dashboard' => 'dashboard#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

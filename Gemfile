@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use sqlite3 as the database for Active Record
-
 # Use SCSS for stylesheets
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -24,7 +22,6 @@ gem "paperclip", "~> 4.2"
 gem 'ckeditor_rails'
 gem 'aws-sdk', '< 2.0'
 gem 'devise', '3.4.1'
-gem 'mailcatcher', '~> 0.6.1'
 gem 'sendgrid'
 gem 'figaro'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -48,6 +45,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
+  gem 'mailcatcher', '~> 0.6.1'
 end
 
 group :development do

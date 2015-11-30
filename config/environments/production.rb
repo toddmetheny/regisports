@@ -85,18 +85,11 @@ Rails.application.configure do
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   }
 }
-config.action_mailer.default_url_options = { host: 'regisport2.herokuapp.com'}
 
+Rails.application.routes.default_url_options[:host] = 'regisport2.herokuapp.com'
 config.action_mailer.delivery_method = :smtp
-
-config.action_mailer.smtp_settings = {
-address: "smtp.sendgrid.net",
-port: 25,
-domain: "heroku.com", 
-authentication: "plain",
-enable_starttls_auto: true,
-user_name: ENV["SENDGRID_USERNAME"],
-password: ENV["SENDGRID_PASSWORD"]
-}
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = false
+config.action_mailer.default :charset => "utf-8"
 
 end

@@ -24,6 +24,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'devise', '3.4.1'
 gem 'sendgrid'
 gem 'figaro'
+gem 'rack-wwwhisper', '~> 1.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

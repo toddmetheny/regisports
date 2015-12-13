@@ -22,9 +22,6 @@ gem "paperclip", "~> 4.2"
 gem 'ckeditor_rails'
 gem 'aws-sdk', '< 2.0'
 gem 'devise', '3.4.1'
-gem 'sendgrid'
-gem 'figaro'
-gem 'rack-wwwhisper', '~> 1.0'
 gem 'cancancan', '~> 1.10'
 
 # bundle exec rake doc:rails generates the API under doc/api.

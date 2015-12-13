@@ -25,6 +25,7 @@ gem 'devise', '3.4.1'
 gem 'sendgrid'
 gem 'figaro'
 gem 'rack-wwwhisper', '~> 1.0'
+gem 'cancancan', '~> 1.10'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -47,7 +48,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
-  gem 'mailcatcher', '~> 0.6.1'
+  gem "letter_opener"
 
 end
 

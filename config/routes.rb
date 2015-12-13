@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :roles
   devise_for :users
+  scope '/admin' do
+    resources :users
+  end
   resources :events
   resources :options do
       resources :reservations, only: [:new, :create, :index]

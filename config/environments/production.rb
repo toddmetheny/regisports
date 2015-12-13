@@ -86,12 +86,10 @@ Rails.application.configure do
   }
 }
 
-Rails.application.routes.default_url_options[:host] = 'regisport2.herokuapp.com'
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = false
-config.action_mailer.default :charset => "utf-8"
+# Rails.application.routes.default_url_options[:host] = 'regisport2.herokuapp.com'
+# config.action_mailer.delivery_method = :smtp
+# config.action_mailer.perform_deliveries = true
+# config.action_mailer.raise_delivery_errors = false
+# config.action_mailer.default :charset => "utf-8"
 
-
-config.middleware.insert 0, "Rack::WWWhisper"
 end

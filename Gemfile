@@ -23,7 +23,7 @@ gem 'ckeditor_rails'
 gem 'aws-sdk', '< 2.0'
 gem 'devise', '3.4.1'
 gem 'cancancan', '~> 1.10'
-
+gem 'geocoder'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

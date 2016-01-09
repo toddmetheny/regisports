@@ -19,8 +19,9 @@
               <h3>You have no Registrations in your cart</h3>
           <% end %>
           <% if current_order.reservations.size > 0 %>
-          <%= link_to "#{current_order.reservations.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
-          <% end %>          
+          <div><%= link_to "#{current_order.reservations.size} Registrations in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "cart-snippet" %></div>
+          <% end %> 
+          <br>         
         </div>
         <!-- START FORM -->
         <div class="col-sm-12">
@@ -28,7 +29,6 @@
             <% if @reservation.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
-
                 <ul>
                 <% @reservation.errors.full_messages.each do |message| %>
                   <li><%= message %></li>
@@ -36,19 +36,46 @@
                 </ul>
               </div>
             <% end %>
-
-            <div class="field">
+            <div class="form-group">
               <%= f.label :name %><br>
-              <%= f.text_field :name %>
+              <%= f.text_field :name, class: 'form-control' %>
             </div>
-            <div class="field">
-              <%= f.label :lastname %><br>
-              <%= f.text_field :lastname %>
+            <div class="form-group">
+              <%= f.label(:lastname, "Last Name" )%><br>
+              <%= f.text_field :lastname, class: 'form-control' %>
             </div>
+            <div class="form-group">
+              <%= f.label(:age, "Age" )%><br>
+              <%= f.text_field :age, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label(:phone, "Phone" )%><br>
+              <%= f.text_field :phone, placeholder: "(###)-###-####", class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label(:email, "Email" )%><br>
+              <%= f.text_field :email, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label(:team, "Team" )%><br>
+              <%= f.text_field :team, placeholder: "Team Name if applicable",class: 'form-control' %>
+            </div>                          
+            <div class="form-group">
+            <%= f.label(:gender, "Gender" )%><br>
+              <%= f.select(:gender, options_for_select([['Female', 1], ['Male', 2]])  , {prompt: 'Select Gender'}, class: "form-control" )%><br>
+            </div>
+            <div class="form-group">
+            <%= f.label(:shirt, "Select Shirt Size" )%><br>
+              <%= f.select(:shirt, options_for_select([['Adult Xs', 1], ['Adult Small', 2], ['Adult Medium', 3], ['Adult Large', 4], ['Adult XL', 5], ['Adult XXL', 6], ['Children Small', 7], ['Children Medium', 8], ['Children Large', 9],['Children X-Large', 10]])  , {prompt: 'Select shirt'}, class: "form-control" )%><br>
+            </div>
+            <div class="form-group">
+              <%= f.label(:redeemcode, "Redeem Code" )%><br>
+              <%= f.text_field :redeemcode, placeholder: "Redeemcode if applicable - Groupon / Gustazos Code",class: 'form-control' %>
+            </div>                                     
           <div><%= f.hidden_field :option_id, value: @option.id  %></div>
 
             <div class="actions">
-              <%= f.submit %>
+              <%= f.submit(value="Submit", class: "btn btn-primary") %>
             </div>
           <% end %>          
         </div>

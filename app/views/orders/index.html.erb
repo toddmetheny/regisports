@@ -1,0 +1,14 @@
+<div class="container-fluid events-container-no-pad">
+	<h1>Orders</h1>
+	<% @orders.each do |order| %>
+		<div>
+			Order# <%= order.id %> |
+			<%= number_to_currency(order.subtotal) %> |
+			Status:<%= order.order_status_id %> | 
+			<%= link_to 'Show', order_path(order) %> |
+			<%= link_to 'edit', edit_order_path(order) %> |
+			<%= link_to 'Destroy',  order, method: :delete, data: { confirm: 'Are you sure?' } %>
+	
+		</div>
+	
+	<% end %></div>

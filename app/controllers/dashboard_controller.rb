@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
   	@events = Event.all
   	@options = Option.all
   	@reservations = Reservation.all
-   # authorize! :read, [@events, @options, @reservations]
+    authorize! :read, [@events, @options, @reservations]
   end
 
 end

@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   scope '/admin' do
     resources :users
   end
+  resource :cart, only: [:show]
+  resources :orders   
   resources :events
-  resources :options do
-      resources :reservations, only: [:new, :create, :index]
-  end
-  resources :reservations, only: [ :show, :edit, :update, :destroy]
+  resources :options
+  resources :reservations
   
 
   get 'welcome' => 'welcome#index'

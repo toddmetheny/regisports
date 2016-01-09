@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @order = Order.find_by_uuid(params[:id])
-    @registrations = @order.registrations
+    @reservations = @order.reservations
   end
 
   # GET /orders/new

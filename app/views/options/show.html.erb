@@ -12,9 +12,55 @@
           <h4>Fee: <%= number_to_currency(@option.fee) %></h4>
           <h4>Event: <%= @option.event.title %> </h4>
           <br>
-          <%= link_to 'Next Step >', new_option_reservation_path(@option), :class => "btn btn-lg btn-primary" %>
+
         </div>
-    </div>
+        <div class="col-sm-12" id="cart-text">
+          <% if current_order.reservations.size === 0 %>
+              <h3>You have no Registrations in your cart</h3>
+          <% end %>
+          <% if current_order.reservations.size > 0 %>
+          <%= link_to "#{current_order.reservations.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
+          <% end %>          
+        </div>
+        <!-- START FORM -->
+        <div class="col-sm-12">
+          <%= form_for( @reservation, remote: true) do |f| %>
+            <% if @reservation.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+                <ul>
+                <% @reservation.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="field">
+              <%= f.label :name %><br>
+              <%= f.text_field :name %>
+            </div>
+            <div class="field">
+              <%= f.label :lastname %><br>
+              <%= f.text_field :lastname %>
+            </div>
+          <div><%= f.hidden_field :option_id, value: @option.id  %></div>
+
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          <% end %>          
+        </div>
+        <!-- END FORM -->
+      </div>
     <div class="col-sm-2"></div>
   </div>
 </div>
+
+<script>
+$('#new_reservation').bind('ajax:success', function(){
+  this.reset();
+});
+
+</script>

@@ -2,6 +2,8 @@ class Reservation < ActiveRecord::Base
 	belongs_to :option
 	belongs_to :order
 
+	before_save :set_event_options
+
 	def order_present
 	    if order.nil?
 	      errors.add(:order, "is not a valid order.")

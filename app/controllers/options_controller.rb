@@ -10,14 +10,11 @@ class OptionsController < ApplicationController
   # GET /options/1
   # GET /options/1.json
   def show
-
-    @option = Option.find(params[:id])
-    @reservations = @option.reservations
+    @reservation = Reservation.new
   end
 
   # GET /options/new
   def new
-    @events = Event.all
     @option = Option.new
   end
 

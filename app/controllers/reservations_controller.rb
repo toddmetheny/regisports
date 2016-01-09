@@ -14,7 +14,6 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @option = Option.find(params[:option_id])
     @reservation = Reservation.new
   end
 
@@ -25,12 +24,18 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
+    @order = current_order
+    @reservation = @order.reservations.build(reservation_params)
+    #@reservation = Reservation.new(reservation_params)
+    @order_id = current_order.id
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Registration was successfully created.' }
+        format.html { redirect_to @reservation, notice: 'Registration  was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
+        format.js {}
+        @order.save
+        session[:order_id] = @order.uuid
       else
         format.html { render :new }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }

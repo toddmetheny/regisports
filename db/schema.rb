@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215013353) do
+ActiveRecord::Schema.define(version: 20160109160445) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -55,6 +55,25 @@ ActiveRecord::Schema.define(version: 20151215013353) do
   end
 
   add_index "options", ["event_id"], name: "index_options_on_event_id"
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal  "subtotal",        precision: 12, scale: 3
+    t.decimal  "tax",             precision: 12, scale: 3
+    t.decimal  "shipping",        precision: 12, scale: 3
+    t.decimal  "total",           precision: 12, scale: 3
+    t.integer  "order_status_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "uuid"
+  end
+
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"

@@ -1,0 +1,8 @@
+<div id="active-cart-reservations">
+	<% @reservations.each do |reservation| %>
+		 <div><%= reservation.name %> | <%= number_to_currency(reservation.price) %> 
+		  | <%= link_to 'remove', reservation, method: :delete, remote: true, class: "btn btn-danger"  %>
+		  </div>
+	<% end %>
+</div>
+

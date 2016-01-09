@@ -1,0 +1,4 @@
+<% if @reservations.nil? || @reservations == 0 %>
+  <div>You have no registrations in your cart</div>
+<% end %>
+<%= render 'carts/cart_row' %>

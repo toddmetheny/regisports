@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :events
   resources :options
   resources :reservations
+  resources :charges
   
 
   get 'welcome' => 'welcome#index'

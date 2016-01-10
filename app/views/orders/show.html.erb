@@ -1,7 +1,7 @@
 <div class="container-fluid events-container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h1>Order Total: <%= number_to_currency(@order.subtotal)%></h1>
+
 			<h4>Your Registrations:</h4>
 			<% @order.reservations.each do |reservation| %>
 			<h4><%= reservation.name %> <%= reservation.lastname %> | <%= reservation.email %> | <%= reservation.phone %></h4>
@@ -12,8 +12,32 @@
 				<% unless  reservation.redeemcode === 'N/A' %>
 					<h4>Redeem Code: <%= reservation.redeemcode %></h4>
 				<% end %>
-			<hr> 				
+			<hr> 							
 			<% end %>
+			<h1>Order Total: <%= number_to_currency(@order.subtotal)%></h1>
+			<% if @order.order_status_id === 1 %>
+			  <%= form_tag charges_path(@order) do %>
+			    <article>
+			      <% if flash[:error].present? %>
+			        <div id="error_explanation">
+			          <p><%= flash[:error] %></p>
+			        </div>
+			      <% end %>
+			      <label class="amount">
+			        <span>Amount: <%= @order.subtotal %></span>
+			      </label>
+			    </article>
+
+			    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+			            data-description= "<%= @order.id %>"
+			            data-amount="<%= @order.subtotal.to_i * 100%>"
+			            data-locale="auto">
+			            </script>
+
+			  <% end %>
+
+			<% end %>			
 			<h3>Need to Modify you order? <%= link_to 'Back to Cart', cart_path %> </h3>
 			<p>Please read carefully before paying for your order. By submiting payment, your agree to understand the following information:  </p>
 			<p>Your bank statement will reflect a charge of <%= number_to_currency(@order.subtotal) %> from EKAM CREATIVES.COM or EKAM CREATIVES LLC. Ekam Creatives LLC is not the organizer of the event you are regitering for. We are only processing your registration on behalf of the event organizer. If you whish, We can cancel your order and refund you 100% of your payment up to 24 hours before the starting time of the event. For any other claims, please contact the event organizer.</p>

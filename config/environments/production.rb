@@ -86,7 +86,7 @@ Rails.application.configure do
   }
 }
 
- Rails.application.routes.default_url_options[:host] = 'regisport2.herokuapp.com'
+ Rails.application.routes.default_url_options[:host] = 'https://regisportv01.herokuapp.com'
  config.action_mailer.delivery_method = :smtp
  config.action_mailer.perform_deliveries = true
  config.action_mailer.raise_delivery_errors = false

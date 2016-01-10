@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109172232) do
+ActiveRecord::Schema.define(version: 20160110025447) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -96,16 +96,14 @@ ActiveRecord::Schema.define(version: 20160109172232) do
     t.string   "shirt"
     t.string   "redeemcode"
     t.integer  "option_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.decimal  "price",       precision: 12, scale: 3
-    t.integer  "order_id_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.decimal  "price",      precision: 12, scale: 3
     t.integer  "order_id"
   end
 
   add_index "reservations", ["option_id"], name: "index_reservations_on_option_id"
   add_index "reservations", ["order_id"], name: "index_reservations_on_order_id"
-  add_index "reservations", ["order_id_id"], name: "index_reservations_on_order_id_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

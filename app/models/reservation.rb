@@ -1,8 +1,13 @@
 class Reservation < ActiveRecord::Base
 	belongs_to :option
 	belongs_to :order
-
 	before_save :set_event_options
+	validates :name, presence: true
+	validates :lastname, presence: true
+	validates :age, presence: true
+	validates :email, presence: true
+	validates :gender, presence: true
+	validates :shirt, presence: true
 
 	def order_present
 	    if order.nil?

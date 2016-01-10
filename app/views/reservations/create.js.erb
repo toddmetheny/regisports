@@ -1,7 +1,6 @@
-alert("Registration Created");
-
 <% if @order.errors.any? || @reservation.errors.any? %>
-alert("not valid.")
+	alert("Please fill all the required fields")
+	$("#cart-text").html("<%= escape_javascript(render 'layouts/cart_error') %>")
 <% else %>
   $("#cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
 <% end %>

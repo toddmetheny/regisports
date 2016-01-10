@@ -1,0 +1,16 @@
+<div class="row">
+	<div class="col-sm-12">
+		<% if @reservation.errors.any? %>
+		  <div id="error_explanation" class="error-alert">
+	    		<span >Oops!! You got <%= pluralize(@reservation.errors.count, "error") %>. It looks like you forgot to enter some information:</span>
+		    <ul>
+		    <br>
+		    <% @reservation.errors.full_messages.each do |message| %>
+		      <li><h4><%= message %></h4></li>
+		    <% end %>
+		    </ul>
+		  </div>
+		<% end %>
+	</div>
+	<br>
+</div>

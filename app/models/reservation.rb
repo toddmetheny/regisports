@@ -9,6 +9,14 @@ class Reservation < ActiveRecord::Base
 	validates :gender, presence: true
 	validates :shirt, presence: true
 
+	def gender
+		['Female', 'Male']
+	end
+
+	def shirtSizes
+		['Adult Xs', 'Adult Small', 'Adult Large', 'Adult XL','Adult XXL','Child Small', 'Child Medium', 'Children Large', 'Children X-Large'  ]
+	end
+
 	def order_present
 	    if order.nil?
 	      errors.add(:order, "is not a valid order.")

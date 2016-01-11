@@ -52,11 +52,11 @@
             </div>                          
             <div class="form-group">
             <%= f.label(:gender, "Gender" )%><br>
-              <%= f.select(:gender, options_for_select([['Female', 1], ['Male', 2]])  , {prompt: 'Select Gender'}, class: "form-control" )%><br>
-            </div>
+              <%= f.select(:gender, options_for_select(@gender.collect) , {prompt: 'Select Gender'}, class: "form-control" )%><br>
+            </div>                        
             <div class="form-group">
             <%= f.label(:shirt, "Select Shirt Size" )%><br>
-              <%= f.select(:shirt, options_for_select([['Adult Xs', 1], ['Adult Small', 2], ['Adult Medium', 3], ['Adult Large', 4], ['Adult XL', 5], ['Adult XXL', 6], ['Children Small', 7], ['Children Medium', 8], ['Children Large', 9],['Children X-Large', 10]])  , {prompt: 'Select shirt'}, class: "form-control" )%><br>
+              <%= f.select(:shirt, options_for_select(@shirtSizes.collect) , {prompt: 'Select shirt'}, class: "form-control" )%><br>
             </div>
             <div class="form-group">
               <%= f.label(:redeemcode, "Redeem Code" )%><br>

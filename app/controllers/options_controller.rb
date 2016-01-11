@@ -11,6 +11,8 @@ class OptionsController < ApplicationController
   # GET /options/1.json
   def show
     @reservation = Reservation.new
+    @gender = @reservation.gender
+    @shirtSizes = @reservation.shirtSizes
   end
 
   # GET /options/new

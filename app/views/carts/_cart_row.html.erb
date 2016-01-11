@@ -1,8 +1,14 @@
-<div id="active-cart-reservations">
-	<% @reservations.each do |reservation| %>
-		 <div><%= reservation.name %> | <%= number_to_currency(reservation.price) %> 
-		  | <%= link_to 'remove', reservation, method: :delete, remote: true, class: "btn btn-danger"  %>
-		  </div>
-	<% end %>
-</div>
 
+  <div id="active-cart-reservations">
+		<table class="table">
+			
+				<% @reservations.each do |reservation| %>
+					<tr>	
+						<td><%= reservation.name %> <%= reservation.lastname %></td>
+						<td>Age: <%= reservation.age %> | Gender: <%= reservation.gender %> | T-Shirt: <%= reservation.shirt %></td>
+						<td><%= number_to_currency(reservation.price) %> </td>
+						<td> <%= link_to 'remove', reservation, method: :delete, remote: true, class: "btn btn-sm btn-danger"  %></td>
+					</tr>	
+				<% end %>
+		</table>	
+	</div>

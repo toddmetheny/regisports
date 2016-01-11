@@ -11,7 +11,7 @@ class Reservation < ActiveRecord::Base
 	validates :gender, presence: true
 	validates :shirt, presence: true
 
-	def gender
+	def sex
 		['Female', 'Male']
 	end
 

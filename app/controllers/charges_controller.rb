@@ -25,7 +25,7 @@ class ChargesController < ApplicationController
 	if charge.save
 		@order_id = @order.update_attributes(order_status_id: 2)
 		redirect_to @order
-		# reset_session
+		reset_session
 
 	end   
 

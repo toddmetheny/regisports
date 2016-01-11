@@ -65,6 +65,7 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to reservations_url, notice: 'Registration was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {render inline: "location.reload()" }
     end
   end
 

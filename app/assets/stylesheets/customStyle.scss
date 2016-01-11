@@ -7,15 +7,20 @@ body{
 /*	font-family: 'Roboto Condensed', sans-serif;*/
 }
 
+.hide {
+	display: none;
+}
+
 .error-alert-delete{
-	opacity: 0;
+	z-index: 2000;
+	display: block;
+	height: 25px;
 	font-size: 1.4em;
 	color: rgb(0, 0, 0);
 	border-radius: 15px;
 	padding: 30px;
 	background-color: #F9B2B2;
-	margin-bottom: 25px;
-
+	margin: 20px;
 }
 .error-alert{
 	font-size: 1.4em;

@@ -2,7 +2,7 @@
   <div id="active-cart-reservations">
 		<table class="table">
 			
-				<% @reservations.each do |reservation| %>
+				<% @reservations.try(:each) do |reservation| %>
 					<tr>	
 						<td><%= reservation.name %> <%= reservation.lastname %></td>
 						<td>Age: <%= reservation.age %> | Gender: <%= reservation.gender %> | T-Shirt: <%= reservation.shirt %></td>

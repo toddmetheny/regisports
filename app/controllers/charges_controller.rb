@@ -5,6 +5,7 @@ class ChargesController < ApplicationController
 	def create
 	  # Amount in cents
 	  @order = Order.find_by_uuid(session[:order_id])
+	  @reservations = @order.reservations
 
 	  @amount = @order.subtotal.to_i * 100
 
@@ -19,10 +20,11 @@ class ChargesController < ApplicationController
 	    :description => @order.id,
 	    :currency    => 'usd'
 
+
 	  )
 	  
 	  purchase = Purchase.create(customer_email: params[:stripeEmail], amount: params[:amount],
-	   customer_card: params[:stripeToken], order: params[:order_id], customer_id: customer.id)
+	   customer_card: params[:stripeToken], order_id: (@order.id), customer_id: customer.id)
 
 	  
 	 

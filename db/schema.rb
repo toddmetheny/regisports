@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112003534) do
+ActiveRecord::Schema.define(version: 20160112011109) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -94,7 +94,10 @@ ActiveRecord::Schema.define(version: 20160112003534) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "customer_card"
+    t.integer  "order_id"
   end
+
+  add_index "purchases", ["order_id"], name: "index_purchases_on_order_id"
 
   create_table "reservations", force: :cascade do |t|
     t.string   "name"

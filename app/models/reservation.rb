@@ -16,7 +16,7 @@ class Reservation < ActiveRecord::Base
 	end
 
 	def shirtSizes
-		['Adult Xs', 'Adult Small', 'Adult Large' ,'Adult Large', 'Adult XL','Adult XXL','Child Small', 'Child Medium', 'Children Large', 'Children X-Large'  ]
+		['Adult Xs', 'Adult Small', 'Adult Medium' ,'Adult Large', 'Adult XL','Adult XXL','Child Small', 'Child Medium', 'Children Large', 'Children X-Large'  ]
 	end
 
 	def order_present

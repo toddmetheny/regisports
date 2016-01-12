@@ -1,10 +1,11 @@
 <div id="customflash" class="hide"> Registration Deleted</div>
 <div class="container-fluid events-container">
 	<h1>REVIEW ORDER</h1>
-	
-	<div id="shopping-cart">
-	  <%= render "shopping_cart" %>
-	</div>
+
+		<div id="shopping-cart">
+		  <%= render "shopping_cart" %>
+		</div>
+
 	
 	<h3><%= link_to 'Pay for Order', order_path(session[:order_id]) %></h3>
 </div>

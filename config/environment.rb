@@ -13,5 +13,5 @@ ActionMailer::Base.smtp_settings = {
  :domain         => 'heroku.com',
  :enable_startstls_auto => true
 }
-ActionMailer::Base.default_url_options = { host: 'https://locahost:3000' }
+ActionMailer::Base.default_url_options = { host: 'https://localhost:3000' }
 # CHNAGE BACK HOST TO 'https://regisportv01.herokuapp.com'

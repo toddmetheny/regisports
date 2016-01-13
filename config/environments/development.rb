@@ -44,6 +44,13 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
   config.action_mailer.delivery_method = :letter_opener
 
-
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => 'regisport',
+    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  }
+}
 #ActionMailer::Base.default_url_options = { host: 'localhost:3000' }
 end

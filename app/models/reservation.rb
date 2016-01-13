@@ -1,6 +1,7 @@
 class Reservation < ActiveRecord::Base
 	belongs_to :option
 	belongs_to :order
+	has_one :event, :through => :option
 	before_save :set_event_options
 	before_save :set_default_team
 	before_save :set_default_redeem_code

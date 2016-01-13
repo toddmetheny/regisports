@@ -4,7 +4,7 @@
 <div class="container-fluid events-container">
   <div class="row">
 
-    <div class="col-sm-6 col-md-6 col-lg-4 eventBanner">
+    <div class="col-sm-6 col-md-4 col-lg-4 eventBanner">
         <div class="panel">
           <div class="panel-heading">
             <%= image_tag(@event.image, class: 'img-responsive') %>
@@ -18,8 +18,9 @@
             <h5>Location: <%= @event.venue %></h5>
             <h5><%= @event.address %> <%= @event.city %>, <%= @event.state %> <%= @event.zipcode %></h5>
           </div>
-          <div class="panel-footer text-center">
-          </div>
+<!--           <div class="panel-footer text-center">
+
+          </div> -->
         </div>
     </div>
     <div class="col-sm-6 col-md-6 col-lg-8 eventInfo">
@@ -29,16 +30,14 @@
   </div>
     <div class="col-sm-6 col-md-6 col-lg-4" >
     </div>
-  </div>
-  <br>
-  
+  </div>  
   <% @options.each_slice(1) do |option| %>
     <div class="panel items-panel"> 
       <% option.each do |item| %>
           <div class="panel-body">
             <div class="row">
               <div class="col-sm-6 text-left">
-                <h2><%= item.title %></h2>
+                <h1><%= item.title %></h1>
                 <h4>Price: <%= number_to_currency(item.price) %> </h4>
                 <h4>Service Fee: <%= number_to_currency(item.fee) %></h4>
               </div>

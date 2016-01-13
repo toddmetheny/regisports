@@ -11,6 +11,9 @@ body{
 	display: none;
 }
 
+.no-left-padding{
+	padding-left: 0;
+}
 .error-alert-delete{
 	z-index: 2000;
 	display: block;
@@ -150,7 +153,9 @@ span>.imp{
 .eventBanner{
 	box-sizing: border-box;
 	padding-top: 20px;
-	padding-bottom: 20px
+	padding-bottom: 20px;
+	padding-left: 0;
+	padding-right: 0;
 }
 .eventBanner img{
 	border-style: solid;

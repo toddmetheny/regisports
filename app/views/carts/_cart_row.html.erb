@@ -1,15 +1,21 @@
 
   <div id="active-cart-reservations">
-		<table class="table">
-			
-				<% @reservations.try(:each) do |reservation| %>
-					<tr>	
-						<td><%= reservation.name %> <%= reservation.lastname %></td>
-						<td>Age: <%= reservation.age %> | Gender: <%= reservation.gender %> | T-Shirt: <%= reservation.shirt %></td>
-						<td><%= number_to_currency(reservation.price) %> </td>
-						<td> <%= link_to 'remove', reservation, method: :delete, remote: true, class: "btn btn-sm btn-danger"  %></td>
-					</tr>	
-				<% end %>
-		</table>	
+		<% @reservations.try(:each) do |reservation| %>
+			<div class="row">
+				<div class= "col-xs-12 col-sm-4 no-left-padding">
+					<h2><%= reservation.name %> <%= reservation.lastname %></h2>
+				</div>
+				<br>
+				<div class= "col-xs-12 col-sm-6 no-left-padding">
+					<h4><span class="primary-color"><%= reservation.event.title %></span> | <%= reservation.option.title %> | <span class="primary-color"> <%= reservation.gender %></span> | Age: <%= reservation.age %> | <span class="primary-color"><%= reservation.shirt %></span></h4>
+					<h4></h4>
+				</div>
+				<div class= "col-sm-2 no-left-padding"><h4><%= number_to_currency(reservation.price) %> </h4>
+				<strong><%= link_to 'remove', reservation, method: :delete, remote: true, class: "btn btn-primary btn-sm"  %> </strong>
+					
+				</div>
+			</div>
+		<% end %>
+		
 	</div>
 

@@ -1,0 +1,14 @@
+<div class="container-fluid events-container">
+	<h1>Purchases</h1>
+	<table>
+		<% @purchases.each do |purchase| %>
+			<tr>
+				<td><%= purchase.id %></td>
+				<td><%= purchase.email %></td>
+				<td><%= purchase.order_id %></td>
+				<td><%= link_to 'show', purchase %></td>
+				<td><%= link_to 'Delete', purchase, method: :delete, data:{ confirm: 'Are you sure?'} %></td>	
+			</tr>
+		<% end %>
+	</table>
+</div>

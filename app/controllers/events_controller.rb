@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
   @options = @event.options 
+  reset_session
   end
 
   # GET /events/new

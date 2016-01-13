@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :options
   resources :reservations
   resources :charges
-  resources :purchases, only: [:show]
+  resources :purchases
  #get 'purchase' => 'purchase#show'
   
 

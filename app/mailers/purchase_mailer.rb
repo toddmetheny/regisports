@@ -5,7 +5,7 @@ class PurchaseMailer < ActionMailer::Base
   def purchase(purchase)
 	@purchase = purchase
 	@url = 'http://www.regisport.run'
-	@order = Order.find_by(@purchase.order_id)
+	@order = Order.find(@purchase.order_id)
 	mail(to: purchase.customer_email, bcc: 'antonio@antoniosantoni.com' , subject: 'Receipt of youy purchase')
   end
 

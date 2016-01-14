@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112011109) do
+ActiveRecord::Schema.define(version: 20160114002328) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160112011109) do
     t.datetime "updated_at",     null: false
     t.string   "customer_card"
     t.integer  "order_id"
+    t.string   "uuid"
   end
 
   add_index "purchases", ["order_id"], name: "index_purchases_on_order_id"

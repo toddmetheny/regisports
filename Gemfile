@@ -26,6 +26,7 @@ gem 'cancancan', '~> 1.10'
 gem 'geocoder'
 gem 'stripe'
 gem 'figaro'
+gem 'newrelic_rpm'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

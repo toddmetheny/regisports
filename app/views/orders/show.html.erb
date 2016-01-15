@@ -14,7 +14,10 @@
 				<% end %>
 			<hr> 							
 			<% end %>
-			<h1>Order Total: <%= number_to_currency(@order.subtotal)%></h1>
+			<h2>Order Subtotal: <%= number_to_currency(@order.subtotal) %></h2>
+			<h2>Order Shipping: <%= number_to_currency(@order.shipping) %></h2>
+			<h2>Order Tax: <%= number_to_currency(@order.tax) %></h2>
+			<h2>Order Total: <%= number_to_currency(@order.total) %></h2>
 			<% if @order.order_status_id === 1 %>
 			  <%= form_tag charges_path(@order) do %>
 			    <article>

@@ -34,13 +34,23 @@ class Reservation < ActiveRecord::Base
 	end	
 
 	def reservation_price
-		self[:price] = option.price
+		self[:price] = option.price + option.fee
+	end
+
+	def reservation_shipping
+		self[:shipping] = option.shipping
+	end
+
+	def reservation_tax
+		self[:tax] = option.tax
 	end
 
 	private
 
 	def set_event_options
 		self[:price] = reservation_price
+		self[:shipping] = reservation_shipping
+		self[:tax] = reservation_tax
 	end
 
 	def set_default_team

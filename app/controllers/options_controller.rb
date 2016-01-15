@@ -75,6 +75,6 @@ class OptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def option_params
-      params.require(:option).permit(:title, :category, :saleEnd, :price, :fee, :description, :promocode, :event_id)
+      params.require(:option).permit(:title, :category, :saleEnd, :price, :fee, :description, :promocode, :event_id, :tax)
     end
 end

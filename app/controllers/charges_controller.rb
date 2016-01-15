@@ -7,7 +7,7 @@ class ChargesController < ApplicationController
 	  @order = Order.find_by_uuid(session[:order_id])
 	  @reservations = @order.reservations
 
-	  @amount = @order.subtotal.to_i * 100
+	  @amount = @order.total.to_i * 100
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],

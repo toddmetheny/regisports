@@ -18,7 +18,7 @@
 	<% @order.reservations.each do |reservation| %>
 			<h4>Name: <%= reservation.name %> <%= reservation.lastname %> </h4>
 			<h4>T-Shirt: <%= reservation.shirt %> Team: <%= reservation.team %> </h4>
-			<h4>Event: <%= reservation.event.title %> Registration: <%= reservation.option.title %> </h4>
+			<h4>Event: <%= reservation.event.title %> | Registration: <%= reservation.option.title %> </h4>
 			<h4>Event Date: <%= reservation.event.date %></h4>
 			<h4>Event Organizer: <%= reservation.event.organizer %></h4>
 			<h4>Tel: <%= reservation.event.phone %> Email: <%= reservation.event.email %> </h4>

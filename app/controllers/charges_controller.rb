@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
 
 	  )
 	  
-	  purchase = Purchase.create(customer_email: params[:stripeEmail], amount: params[:amount],
+	  purchase = Purchase.create(customer_email: params[:stripeEmail], amount: (@amount),
 	   customer_card: params[:stripeToken], order_id: (@order.id), customer_id: customer.id)
 
 	  

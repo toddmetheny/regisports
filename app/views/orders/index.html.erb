@@ -1,14 +1,33 @@
-<div class="container-fluid events-container-no-pad">
-	<h1>Orders</h1>
-	<% @orders.each do |order| %>
-		<div>
-			Order# <%= order.id %> |
-			<%= number_to_currency(order.subtotal) %> |
-			Status:<%= order.order_status_id %> | 
-			<%= link_to 'Show', order_path(order) %> |
-			<%= link_to 'edit', edit_order_path(order) %> |
-			<%= link_to 'Destroy',  order, method: :delete, data: { confirm: 'Are you sure?' } %>
-	
+<div class="container-fluid events-container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Orders</h1>
 		</div>
-	
-	<% end %></div>
+	</div>
+	<table class="table">
+		<tr>
+			<th>Order Id</th>
+			<th>amount</th>
+			<th>status</th>
+			<th>manage</th>
+		</tr>
+		<% @orders.each do |order| %>
+			<tr>			
+			<td><%= order.id %></td>
+			<td><%= order.total %></td>
+			<td><%= order.order_status_id %></td>
+			<td><%= link_to 'details', order %> |
+				<%= link_to 'edit', edit_order_path(order) %> |
+				<%= link_to 'delete', order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
+			</tr>
+		<% end %>
+		<tr><td colspan="4"></td></tr>
+	</table>
+	<div class="row">
+		<div class="col-sm-12">
+			
+			<hr>
+		</div>
+	</div>
+</div>

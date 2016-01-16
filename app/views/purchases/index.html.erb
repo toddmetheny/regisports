@@ -1,14 +1,43 @@
 <div class="container-fluid events-container">
-	<h1>Purchases</h1>
-	<table>
+<!-- Purchases -->
+<div class="container-fluid events-container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Purchases</h1>
+		</div>
+	</div>
+	<table class="table">
+		<tr>
+			<th>email</th>
+			<th>customer id</th>
+			<th>amount</th>
+			<th>order</th>
+			<th>id</th>
+			<th>uuid</th>
+			<th>manage</th>
+		</tr>
 		<% @purchases.each do |purchase| %>
-			<tr>
-				<td><%= purchase.id %></td>
-				<td><%= purchase.email %></td>
-				<td><%= purchase.order_id %></td>
-				<td><%= link_to 'show', purchase %></td>
-				<td><%= link_to 'Delete', purchase, method: :delete, data:{ confirm: 'Are you sure?'} %></td>	
+			<tr>			
+			<td><%= purchase.customer_email %></td>
+			<td><%= purchase.customer_id %></td>
+			<td><%= purchase.amount %></td>
+			<td><%= link_to purchase.order_id, orders_path %></td>
+			<td><%= purchase.id %></td>
+			<td><%= purchase.uuid %></td>
+			<td><%= link_to 'details', purchase %> |
+				<%= link_to 'edit', edit_purchase_path(purchase) %> |
+				<%= link_to 'delete', purchase_path(purchase), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
 			</tr>
 		<% end %>
+		<tr><td colspan="7"></td></tr>
 	</table>
+	<div class="row">
+		<div class="col-sm-12">
+			
+			<hr>
+		</div>
+	</div>
+</div>
+
 </div>

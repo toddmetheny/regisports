@@ -86,6 +86,7 @@
 			<th>lastname</th>
 			<th>email</th>
 			<th>phone</th>
+			<th>event</th>
 			<th>event option</th>
 			<th>manage</th>
 		</tr>
@@ -95,22 +96,63 @@
 			<td><%= reservation.lastname %></td>
 			<td><%= reservation.email %></td>
 			<td><%= reservation.phone %></td>
+			<td><%= reservation.event.title %></td>			
 			<td><%= reservation.option.title %></td>
 			<td><%= link_to 'details', reservation %> |
 				<%= link_to 'edit', edit_reservation_path(reservation) %> |
 				<%= link_to 'delete', reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
 			</td>
-			</td>
 			</tr>
 		<% end %>
-		<tr><td colspan="4"></td></tr>
+		<tr><td colspan="7"></td></tr>
 	</table>
-		<div class="row">
+	<div class="row">
 		<div class="col-sm-12">
 			
 			<hr>
 		</div>
-
 	</div>
 </div>
+
+<!-- Purchases -->
+<div class="container-fluid events-container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Purchases</h1>
+		</div>
+	</div>
+	<table class="table">
+		<tr>
+			<th>email</th>
+			<th>customer id</th>
+			<th>amount</th>
+			<th>order</th>
+			<th>id</th>
+			<th>uuid</th>
+			<th>manage</th>
+		</tr>
+		<% @purchases.each do |purchase| %>
+			<tr>			
+			<td><%= purchase.customer_email %></td>
+			<td><%= purchase.customer_id %></td>
+			<td><%= purchase.amount %></td>
+			<td><%= link_to purchase.order_id, orders_path %></td>
+			<td><%= purchase.id %></td>
+			<td><%= purchase.uuid %></td>
+			<td><%= link_to 'details', purchase %> |
+				<%= link_to 'edit', edit_purchase_path(purchase) %> |
+				<%= link_to 'delete', purchase_path(purchase), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
+			</tr>
+		<% end %>
+		<tr><td colspan="7"></td></tr>
+	</table>
+	<div class="row">
+		<div class="col-sm-12">
+			
+			<hr>
+		</div>
+	</div>
+</div>
+
 

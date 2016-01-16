@@ -3,21 +3,37 @@
 		<div class="col-sm-12">
 
 			<h4>Your Registrations:</h4>
-			<% @order.reservations.each do |reservation| %>
-			<h4><%= reservation.name %> <%= reservation.lastname %> | <%= reservation.email %> | <%= reservation.phone %></h4>
-			<h4><%= reservation.gender %> <%= reservation.shirt %> </h4> 
-				<% unless  reservation.team === 'N/A' %>
-					<h4>Team: <%= reservation.team %></h4>
-				<% end %>
-				<% unless  reservation.redeemcode === 'N/A' %>
-					<h4>Redeem Code: <%= reservation.redeemcode %></h4>
-				<% end %>
-			<hr> 							
+			<div class="row">
+				<div class="col-sm-12">
+				<h3>Registrations in your order:</h3>
+				<% @order.reservations.each do |reservation| %>
+						<h4>Name: <%= reservation.name %> <%= reservation.lastname %> </h4>
+						<h4>T-Shirt: <%= reservation.shirt %></h4>
+						<% unless  reservation.team === 'N/A' %>
+							<h4>Team: <%= reservation.team %></h4>
+						<% end %>
+						<% unless  reservation.redeemcode === 'N/A' %>
+							<h4>Redeem Code: <%= reservation.redeemcode %></h4>
+						<% end %>
+						<h4>Event: <%= reservation.event.title %> Registration: <%= reservation.option.title %> </h4>
+						<h4>Event Date: <%= reservation.event.date %></h4>
+						<h4>Event Organizer: <%= reservation.event.organizer %></h4>
+						<h4>Tel: <%= reservation.event.phone %> Email: <%= reservation.event.email %> </h4>
+						<hr>
+					<% end %>
+				</div>
+			</div>			
+			<h4>Order Subtotal: <%= number_to_currency(@order.subtotal) %></h4>
+			<% if @order.shipping > 0 %>
+				<h2>Order Shipping: <%= number_to_currency(@order.shipping) %></h2>
 			<% end %>
-			<h2>Order Subtotal: <%= number_to_currency(@order.subtotal) %></h2>
-			<h2>Order Shipping: <%= number_to_currency(@order.shipping) %></h2>
+			<% if @order.tax > 0 %>
 			<h2>Order Tax: <%= number_to_currency(@order.tax) %></h2>
+			<% end %>
 			<h2>Order Total: <%= number_to_currency(@order.total) %></h2>
+
+<!-- start stripe checkout form -->
+
 			<% if @order.order_status_id === 1 %>
 			  <%= form_tag charges_path(@order) do %>
 			    <article>
@@ -37,10 +53,11 @@
 			  <% end %>
 
 			<% end %>			
-			<h3>Need to Modify you order? <%= link_to 'Back to Cart', cart_path %> </h3>
+			<h3>Need to Modify you order? <%= link_to 'Go Back to Cart', cart_path %> </h3>
 			<p>Please read carefully before paying for your order. By submiting payment, your agree to understand the following information:  </p>
 			<p>Your bank statement will reflect a charge of <%= number_to_currency(@order.subtotal) %> from EKAM CREATIVES.COM or EKAM CREATIVES LLC. Ekam Creatives LLC is not the organizer of the event you are regitering for. We are only processing your registration on behalf of the event organizer. If you whish, We can cancel your order and refund you 100% of your payment up to 24 hours before the starting time of the event. For any other claims, please contact the event organizer.</p>
 
 		</div>
 	</div>
+</div>
 </div>

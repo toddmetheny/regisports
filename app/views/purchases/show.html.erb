@@ -1,6 +1,36 @@
-<h1>Congrats!</h1>
-<h3>This is your Purchase: <%= @purchase.inspect %></h3> ?>
+<div class="container-fluid events-container">
+<div class="row">
+	<div class="col-sm-12"><h1>Thanks for your order</h1></div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<p>We sent you a copy of this receipt to your email: <%= @purchase.customer_email %></p>
+		<h3>Confirmation number: <span class="primary-color"><%= @purchase.uuid %></span></h3>
+		<h3>Order Email: <%= @purchase.customer_email %> </h3>
+<!-- 		<h3>Order total: <%= number_to_currency(@purchase.amount) %></h3> -->
+		<h3>Order total: <%= @purchase.amount %></h3>
+	</div>
+</div>
 
-<% @order.reservations.each do |reservation| %>
-	<%= reservation.name %>
-<% end %>
+<div class="row">
+	<div class="col-sm-12">
+	<h3>Registrations in your order:</h3>
+	<% @order.reservations.each do |reservation| %>
+			<h4>Name: <%= reservation.name %> <%= reservation.lastname %> </h4>
+			<h4>T-Shirt: <%= reservation.shirt %> Team: <%= reservation.team %> </h4>
+			<h4>Event: <%= reservation.event.title %> Registration: <%= reservation.option.title %> </h4>
+			<h4>Event Date: <%= reservation.event.date %></h4>
+			<h4>Event Organizer: <%= reservation.event.organizer %></h4>
+			<h4>Tel: <%= reservation.event.phone %> Email: <%= reservation.event.email %> </h4>
+
+			<hr>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<p>Please save your confirmation number: <strong><%= @purchase.uuid %></strong></p>
+		<p>For event information please contact the event organizer. For order cancelation and refund please email us at: support@regisport.run. Please include you confirmation number, order email and your contact information.</p>
+	</div>
+</div>
+</div>

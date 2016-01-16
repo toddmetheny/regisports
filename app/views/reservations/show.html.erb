@@ -1,52 +1,59 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @reservation.name %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @reservation.lastname %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @reservation.age %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @reservation.gender %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @reservation.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @reservation.phone %>
-</p>
-
-<p>
-  <strong>Team:</strong>
-  <%= @reservation.team %>
-</p>
-
-<p>
-  <strong>Shirt:</strong>
-  <%= @reservation.shirt %>
-</p>
-
-<p>
-  <strong>Redeemcode:</strong>
-  <%= @reservation.redeemcode %>
-</p>
-
-<p>
-  <strong>Option:</strong>
-  <%= @reservation.option.title %>
-</p>
-
+<div class="container-fluid events-container">
+  <h3>
+    <strong>Name:</strong>
+    <%= @reservation.name %>
+  </h3>
+  
+  <h3>
+    <strong>Lastname:</strong>
+    <%= @reservation.lastname %>
+  </h3>
+  
+  <h3>
+    <strong>Age:</strong>
+    <%= @reservation.age %>
+  </h3>
+  
+  <h3>
+    <strong>Gender:</strong>
+    <%= @reservation.gender %>
+  </h3>
+  
+  <h3>
+    <strong>Email:</strong>
+    <%= @reservation.email %>
+  </h3>
+  
+  <h3>
+    <strong>Phone:</strong>
+    <%= @reservation.phone %>
+  </h3>
+  
+  <h3>
+    <strong>Team:</strong>
+    <%= @reservation.team %>
+  </h3>
+  
+  <h3>
+    <strong>Shirt:</strong>
+    <%= @reservation.shirt %>
+  </h3>
+  
+  <h3>
+    <strong>Redeemcode:</strong>
+    <%= @reservation.redeemcode %>
+  </h3>
+  
+  <h3>
+  <strong>Event:</strong>
+    <%= @reservation.event.title %>
+  </h3>
+  <h3>
+  <strong>Event date:</strong>
+    <%= @reservation.event.date %>
+  </h3>  
+  <h3>
+    <strong>Option:</strong>
+    <%= @reservation.option.title %>
+  </h3>  
+</div>

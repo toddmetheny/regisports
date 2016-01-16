@@ -1,6 +1,62 @@
 <h1>Editing Reservation</h1>
 
-<%= render 'form' %>
+<%= form_for([@event,@option,@reservation]) do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+      <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :lastname %><br>
+    <%= f.text_field :lastname, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :age %><br>
+    <%= f.number_field :age, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :team %><br>
+    <%= f.text_field :team, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :shirt %><br>
+    <%= f.text_field :shirt, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :redeemcode %><br>
+    <%= f.text_field :redeemcode, class: 'form-control' %>
+  </div>
+  <div class="form-group hidden">
+    <%= f.label :option_id %><br>
+    <%= f.text_field :option_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @reservation %> |
 <%= link_to 'Back', reservations_path %>

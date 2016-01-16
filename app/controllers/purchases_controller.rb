@@ -1,9 +1,10 @@
 class PurchasesController < ApplicationController
+  helper PurchasesHelper
 
 def show
 	@purchase = Purchase.find_by_uuid(params[:id])
 	@order = Order.find(@purchase.order_id)
-	PurchaseMailer.purchase(@purchase).deliver_now
+	#PurchaseMailer.purchase(@purchase).deliver_now
 
 end
 

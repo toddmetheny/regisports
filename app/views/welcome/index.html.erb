@@ -5,25 +5,29 @@
 <% @events.each do |event| %>
 <div class="container-fluid events-container">
 	<div class="row">
-		<div class="col-sm-6 col-md-6 col-lg-7 eventInfo">
-			<span><h2><%= event.title %></h2></span>
-			<span><h2><%= event.date.strftime('%b %d') %>, <%= event.city %> <%= event.state %></h2></span>
-			<p><%=raw event.description %></p>
-			<%= link_to 'Details', event_path(event), class: 'btn btn-primary btn-lg' %>
-		</div>
-		<div class="col-sm-6 col-md-6 col-lg-4 col-lg-offset-1 eventBanner">
-			<%= image_tag(event.image, class: 'img-responsive') %>
-<!-- 			<img class="img-responsive"src="assets/5k-Carnival-400x250.jpg"> -->
-		</div>
+		<div class="col-sm-12 eventInfo">
+			<div class="panel">		
+				<div class="panel-heading">
+				<%= image_tag(event.image, class: 'img-responsive') %>
+				</div>	
+				<div class="panel-body">
+					<span><h1><%= event.title %></h1></span>
+					<span><h3><%= event.date.strftime('%b %d') %> | <%= event.city %> <%= event.state %></h3></span>
+					<p><%=raw event.description %></p>
+					
+				</div>
+				<div class="panel-footer"><%= link_to 'Details', event_path(event), class: 'btn btn-primary btn-lg' %></div>
+			</div>
+		</div>					
 	</div>
 </div>
 <% end %>
 <div class="container-fluid ekam-info-container">
 	<div class="row">
 		<div class="col-md-12">
-		<span><h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2></span>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-<a class="btn btn-primary btn-lg" type="submit" href="individual.html">Read More</a>
+			<span><h2>Simple Event Registration</h2></span>
+			<p>No need for fluff. Just register and go.</p>
+			<a class="btn btn-primary btn-lg" type="submit" href="#">Read More</a>
 		</div>
 	</div>
 

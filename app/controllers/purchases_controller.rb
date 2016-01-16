@@ -10,6 +10,7 @@ end
 
 def index
 	@purchases = Purchase.all
+  authorize! :read, @purchases
 	
 end
 

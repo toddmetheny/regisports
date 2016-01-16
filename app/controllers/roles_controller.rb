@@ -5,6 +5,7 @@ class RolesController < ApplicationController
   # GET /roles.json
   def index
     @roles = Role.all
+    authorize! :read, @roles
   end
 
   # GET /roles/1

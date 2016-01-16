@@ -5,6 +5,7 @@ class OptionsController < ApplicationController
   # GET /options.json
   def index
     @options = Option.all
+    authorize! :read, [@events, @options, @reservations]
   end
 
   # GET /options/1

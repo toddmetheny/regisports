@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
+    authorize! :read, @orders
   end
 
   # GET /orders/1

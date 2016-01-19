@@ -1,5 +1,7 @@
 <% if @order.errors.any? || @reservation.errors.any? %>
 $("#cart-text").html("<%= escape_javascript(render 'layouts/cart_error') %>")
+
 <% else %>
   $("#cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
+
 <% end %>

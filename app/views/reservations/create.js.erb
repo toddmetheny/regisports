@@ -3,5 +3,6 @@ $("#cart-text").html("<%= escape_javascript(render 'layouts/cart_error') %>")
 
 <% else %>
   $("#cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
+  $("#update_navbar").html("<%= escape_javascript(render 'layouts/nav_collapse') %>")
 
 <% end %>

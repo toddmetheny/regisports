@@ -26,18 +26,19 @@ class Order < ActiveRecord::Base
     reservations.collect{ |r| r.shipping }.sum
   end 
 
+
   def total
     self[:total] = subtotal + tax + shipping
   end     
 
   def total_for_no_price
     if self.subtotal.nil?
-      self[:subtotal] = 0
+      self[:subtotal] = 0.0
     end
   end
   def set_tax
     if self.tax.nil?
-      self[:tax] = 0
+      self[:tax] = 0.0
     end
   end  
 

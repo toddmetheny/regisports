@@ -6,8 +6,9 @@ class ChargesController < ApplicationController
 	  # Amount in cents
 	  @order = Order.find_by_uuid(session[:order_id])
 	  @reservations = @order.reservations
-
-	  @amount = @order.total.to_i * 100
+	  @total_amount = @order.total * 100
+	  @total_convert = @total_amount.to_i
+	  @amount = @total_convert
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],

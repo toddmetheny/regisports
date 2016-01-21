@@ -54,14 +54,48 @@ body{
 }
 .navbar{
 	margin-bottom: 0;
+	background-color: red;
+	border: none;
+	border-radius: 0;
 }
 .navbar-default{
 
-	background-color: #fdfdfd;
+	background-color: #3184CC;
+	border:none;
+	font-weight: bold;
+	color: #fff;
 }
 .navbar-brand{
 	height: 60px;
 }
+
+.navbar-default .navbar-toggle {
+    border: none;
+    background-color: #3184CC;
+    }
+
+.navbar-default .navbar-toggle:hover {
+    background-color: #3184CC
+    }
+.navbar-default .navbar-toggle:active {
+    background-color: #3184CC
+    }         
+.navbar-default .navbar-nav > li > a {
+    color: #FFF;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 46px;
+    height: 6px;
+    border-radius: 0px;
+    border: none;
+}
+
 .primary-color{
 	color:#ec0000;
 }

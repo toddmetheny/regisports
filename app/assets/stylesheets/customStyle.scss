@@ -8,10 +8,27 @@ body{
 	overflow-x: hidden;
 }
 
+$primary-color: #3184CC;
+$seconday-color: #3fcc11;
+$tertiary-color: #edd41b;
+
+/*Spacers*/
+.spacer-top-sm{
+ margin-top: 25px;
+}
+
+.spacer-top-md{
+ margin-top: 50px;
+}
+
+.spacer-top-lg{
+ margin-top: 75px;
+}
+
+/*End Spacers*/
 .hide {
 	display: none;
 }
-
 
 .no-left-padding{
 	padding-left: 0;
@@ -299,48 +316,8 @@ margin-bottom: -5%;
 /*--------------------------------------*/
 /* ------- END Slider Animation --------*/
 /*--------------------------------------*/
-@media screen and (max-width: 767px) {
-
-	.slider-title{
-		font-size: 2.7em;
-
-	}	
-
-	.element4{
-	margin-top: -34%;
-	}
-	.cloud1 img{
-		max-width: 110px;
-	    margin-top: 13%;
-	}	
-	.cloud2 img{
-		max-width: 125px;
-	    margin-top: 10%;
-	}
-	.cloud3 img{
-		max-width: 50px;
-	    margin-top: 10%;
-	}
-
-}
-
-@media screen and (min-width: 1832px) {
-
-	.element3{
-	visibility: hidden;
-	display: none;
-
-	}
-	.custom-container{
-	visibility: visible;
-	display: block;	
-	}
-	.element4{
-	margin-top: -20%;
-	}	
 
 
-}
 .main-container{
 	margin: 0 auto;
 	box-sizing: border-box;
@@ -351,6 +328,12 @@ margin-bottom: -5%;
 }
 .items-panel{
 	margin-top:20px;
+}
+
+.pFooter-colored{
+	height: 45px;
+	background-color: #3184CC;
+
 }
 /* events-container Class Shared with Register Page*/
 
@@ -365,6 +348,13 @@ margin-bottom: -5%;
 	margin: 0 auto;
 	background-color: #f0f0f0;
 	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.regular-container{
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #f0f0f0;
+	margin-top: 25px;
 	margin-bottom: 10px;
 }
 .center-container {
@@ -531,3 +521,56 @@ legend{
 	margin-bottom: 20px;
 	margin-left: 148px;	
 }
+
+
+/*--------------------------------------*/
+/* ---------- MEDIA QUERIES ------------*/
+/*--------------------------------------*/
+
+@media screen and (max-width: 767px) {
+
+	.slider-title{
+		font-size: 2.7em;
+
+	}	
+
+	.element4{
+	margin-top: -34%;
+	}
+	.cloud1 img{
+		max-width: 110px;
+	    margin-top: 13%;
+	}	
+	.cloud2 img{
+		max-width: 125px;
+	    margin-top: 10%;
+	}
+	.cloud3 img{
+		max-width: 50px;
+	    margin-top: 10%;
+	}
+
+}
+
+@media screen and (min-width: 1832px) {
+
+	.element3{
+	visibility: hidden;
+	display: none;
+
+	}
+	.custom-container{
+	visibility: visible;
+	display: block;	
+	}
+	.element4{
+	margin-top: -20%;
+	}	
+
+
+}
+
+
+/*--------------------------------------*/
+/* ---------- END MEDIA QUERIES --------*/
+/*--------------------------------------*/

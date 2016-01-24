@@ -7,8 +7,8 @@
 			<div class="row">
 				<div class="col-xs-4 col-sm-5"></div>
 				<div class="col-xs-3 col-sm-2 element1">
-					<div class="sun text-center">
-						<img class="img-responsive" src="https://s3.amazonaws.com/regisport/application/Sun768.svg" alt="">
+					<div class="sun col-xs-12 text-center">
+						<img class="img-responsive" src="https://s3.amazonaws.com/regisport/application/Sun768.png" alt="">
 					</div>
 				</div>
 				<div class="col-xs-4 col-sm-5"></div>
@@ -45,27 +45,61 @@
 <!-- <img class="img-responsive"src="https://s3.amazonaws.com/regisport/application/Regisport-Field.png"> -->
 </div>
 
-<% @events.each do |event| %>
-<div class="container-fluid events-container">
-	<div class="row">
-		<div class="col-sm-12 eventInfo">
-			<div class="panel">		
-				<div class="panel-heading">
-				<%= image_tag(event.image, class: 'img-responsive') %>
-				</div>	
+<div class="container-fluid regular-container spacer-top-lg">
+	<div class="row spacer-top-sm">
+		<div class="col-sm-4">
+			<div class="panel">
 				<div class="panel-body">
-					<span><h1><%= event.title %></h1></span>
-					<span><h3><%= event.date.strftime('%b %d') %> | <%= event.city %> <%= event.state %></h3></span>
-					<p><%=raw event.description %></p>
+					<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+						<img class="img-responsive"src="https://s3.amazonaws.com/regisport/application/Magnifier-768.svg" alt="">
+					</div>
+					<div class="col-sm-12 text-center">
+						<h2>Find Event</h2>
+						<p>Select your event, registers as many people as you one, pay, and done. You cvan also register for multile event in one order. Easy!</p>
+					</div>
+				</div>
+				<div class="panel-footer pFooter-colored">
 					
 				</div>
-				<div class="panel-footer"><%= link_to 'Details', event_path(event), class: 'btn btn-primary btn-lg' %></div>
 			</div>
-		</div>					
+		</div>
+		<div class="col-sm-4">
+			<div class="panel">
+				<div class="panel-body">
+					<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+						<img class="img-responsive"src="https://s3.amazonaws.com/regisport/application/Lock-768.svg" alt="">
+					</div>
+					<div class="col-sm-12 text-center">
+						<h2>Secure Payment</h2>
+						<p>We use Stripe to process our payments. Stripe is one of the leading providers of  secure On-line payments </p>
+					</div>
+				</div>
+				<div class="panel-footer pFooter-colored">
+					
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="panel">
+				<div class="panel-body">
+					<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">
+						<img class="img-responsive"src="https://s3.amazonaws.com/regisport/application/Thumbs-up-768.svg" alt="">
+					</div>
+					<div class="col-sm-12 text-center">
+						<h2>Be Awesome</h2>
+						<p>No need to open an account with us. We'll send you a copy of your registrations via email. Then you keep being awesome.</p>
+					</div>
+				</div>
+				<div class="panel-footer pFooter-colored">
+					
+				</div>
+			</div>
+		</div>				
 	</div>
 </div>
-<% end %>
-<div class="container-fluid ekam-info-container">
+
+
+<!-- <div class="container-fluid ekam-info-container">
 	<div class="row">
 		<div class="col-md-12">
 			<span><h2>Simple Event Registration</h2></span>
@@ -74,5 +108,5 @@
 		</div>
 	</div>
 
-</div>
+</div> -->
 

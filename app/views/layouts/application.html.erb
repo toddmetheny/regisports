@@ -5,43 +5,46 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Regisport</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Roboto:400,300,700,500,400italic|Roboto+Condensed:400italic,400,700,300' %>
   <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Coustard' %>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Caveat+Brush' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid container-withPad-noBackground">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to image_tag("https://s3.amazonaws.com/regisport/application/RegisportLogo148x39-01.svg"), root_path, class: "navbar-brand" %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid container-withPad-noBackground">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag("https://s3.amazonaws.com/regisport/application/RegisportLogo148x39-01.svg"), root_path, class: "navbar-brand" %>
+      </div>
+    <div id="update_navbar">
+      <%= render partial: "layouts/nav_collapse" %>
     </div>
-  <div id="update_navbar"><%= render partial: "layouts/nav_collapse" %></div>
-  </div><!-- /.container-fluid -->
-</nav>	
-<div class="container-fluid events-container-no-pad">
-  <div class="row flash">
-      <%= render partial: "shared/flash_messages", flash: flash %> 
+    </div><!-- /.container-fluid -->
+  </nav>	
+  <div class="container-fluid events-container-no-pad">
+    <div class="row flash">
+        <%= render partial: "shared/flash_messages", flash: flash %> 
+    </div>
   </div>
-</div>
 <%= yield %>
-<div class="container footer">
-	<div class="container-fluid footerInfo">
-		<div class="row">
-		<div class="col-md-4">
-		<span><img class="" src="https://s3.amazonaws.com/regisport/application/RegiSports-350x80.png"></span>
-		</div>
-		<div class="col-md-4 col-md-offset-4 copyright"><span>© 2016 EKAM CREATIVES LLC</span></div>
-		</div>
-	</div>
-</div>
+  <div class="container footer">
+  	<div class="container-fluid footerInfo">
+  		<div class="row">
+  		<div class="col-md-4">
+  		<span><img class="" src="https://s3.amazonaws.com/regisport/application/RegiSports-350x80.png"></span>
+  		</div>
+  		<div class="col-md-4 col-md-offset-4 copyright"><span>© 2016 EKAM CREATIVES LLC</span></div>
+  		</div>
+  	</div>
+  </div>
 </body>
 </html>

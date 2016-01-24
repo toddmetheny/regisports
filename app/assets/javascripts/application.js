@@ -16,4 +16,5 @@
 //= require ckeditor-jquery
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require 'greensock/TweenMax'
 //= require_tree .

@@ -66,3 +66,9 @@ $( document ).ready(function() {
 
 }); // end ready function
 
+
+$( document ).on("page:load", function() {
+
+	customAnimation.init();
+
+}); // end ready function

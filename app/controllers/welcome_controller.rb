@@ -12,5 +12,9 @@ class WelcomeController < ApplicationController
 		
 	end
 
+	def allevents
+		@events = Event.all	
+	end	
+
 
 end

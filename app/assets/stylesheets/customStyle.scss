@@ -9,12 +9,13 @@ body{
 }
 
 $primary-color: #3184CC;
-$seconday-color: #3fcc11;
+$seconday-color: #2b2;
 $tertiary-color: #edd41b;
+$light-gray: #f0f0f0;
 
 /*Spacers*/
 .spacer-top-sm{
- margin-top: 25px;
+ margin-top: 15px;
 }
 
 .spacer-top-md{
@@ -155,7 +156,7 @@ span>.imp{
 }
 .btn-primary{
 
-	background-color: #ec0000;
+	background-color: $seconday-color;
 	border-color: #fff;
 	color:#fff;
 }
@@ -342,6 +343,14 @@ margin-bottom: -5%;
 
 }
 /* events-container Class Shared with Register Page*/
+
+.title-line{
+	background-color: $light-gray;
+}
+.title-line-button{
+	margin-top: 12px;
+
+}
 
 .container-withPad-noBackground{
 	max-width: 1200px;

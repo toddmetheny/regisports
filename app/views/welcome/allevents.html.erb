@@ -21,7 +21,16 @@
 				<%= image_tag(event.image, class: 'img-responsive') %>
 				</div>	
 				<div class="panel-body">
-					<span><h1><%= event.title %></h1></span>
+				<div class="row title-line hidden-xs">
+					<div class="col-xs-7 col-sm-10"><span><h1><%= event.title %></h1></span></div>
+					<div class="col-xs-5 col-sm-2 text-right"><%= link_to 'Details', event_path(event), class: 'btn btn-primary btn-lg title-line-button' %></div>
+				</div>
+				<div class="row title-line visible-xs">
+					<div class="col-xs-7 col-sm-10"><span><h3><%= event.title %></h3></span></div>
+					<div class="col-xs-5 col-sm-2 text-right"><%= link_to 'Details', event_path(event), class: 'btn btn-primary title-line-button' %></div>
+				</div>				
+					
+					
 					<span><h3><%= event.date.strftime('%b %d') %> | <%= event.city %> <%= event.state %></h3></span>
 					<p><%=raw event.description %></p>
 					

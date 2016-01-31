@@ -1,4 +1,4 @@
-<div class="container-fluid events-container-no-pad">
+<div class="container-fluid events-container-no-pad spacer-top-sm-2">
   <%= image_tag(@event.imagebig, class: 'img-responsive') %>
 </div>
 <div class="container-fluid events-container">
@@ -32,9 +32,9 @@
     </div>
   </div>  
   <% @options.each_slice(1) do |option| %>
-    <div class="panel items-panel"> 
+    <div class="panel"> 
       <% option.each do |item| %>
-          <div class="panel-body">
+          <div class="panel-body clear-padding-top">
             <div class="row">
               <div class="col-sm-6 text-left">
                 <h1><%= item.title %></h1>

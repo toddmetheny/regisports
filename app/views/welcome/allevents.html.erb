@@ -13,31 +13,30 @@
 
 
 <% @events.each do |event| %>
-<div class="container-fluid events-container">
-	<div class="row">
-		<div class="col-sm-12 eventInfo">
-			<div class="panel">		
-				<div class="panel-heading">
-				<%= image_tag(event.image, class: 'img-responsive') %>
-				</div>	
-				<div class="panel-body">
-				<div class="row title-line hidden-xs">
-					<div class="col-xs-7 col-sm-10"><span><h1><%= event.title %></h1></span></div>
-					<div class="col-xs-5 col-sm-2 text-right"><%= link_to 'Details', event_path(event), class: 'btn btn-primary btn-lg title-line-button' %></div>
-				</div>
-				<div class="row title-line visible-xs">
-					<div class="col-xs-7 col-sm-10"><span><h3><%= event.title %></h3></span></div>
-					<div class="col-xs-5 col-sm-2 text-right"><%= link_to 'Details', event_path(event), class: 'btn btn-primary title-line-button' %></div>
-				</div>				
-					
-					
-					<span><h3><%= event.date.strftime('%b %d') %> | <%= event.city %> <%= event.state %></h3></span>
-					<p><%=raw event.description %></p>
-					
-				</div>
-				<div class="panel-footer"><%= link_to 'Details', event_path(event), class: 'btn btn-primary btn-lg' %></div>
-			</div>
-		</div>					
+	<div class="container-fluid events-container">
+		<div class="row">
+			<div class="col-sm-12 eventInfo">
+				<div class="panel">		
+					<div class="panel-heading">
+						<%= image_tag(event.image, class: 'img-responsive') %>
+					</div>	
+					<div class="panel-body clear-padding-top">
+						<div class="row ">
+							<div class="col-sm-8 col-sm-offset-2 ">
+								<h3><%= event.title %></h3>
+								<span class="sub-title"><strong>When: </strong>
+								<%= event.date.strftime('%b %d, %y') %> | <%= event.startTime %>
+								</span>
+								<br>
+								<span class="sub-title"><strong>Where: </strong>
+								<%= event.city %>, <%= event.state %></span>
+								<p><%=raw event.description %></p>
+								<%= link_to 'Details', event_path(event), class: 'btn btn-primary btn-lg' %>									
+							</div>
+						</div>	<!-- row -->
+					</div> <!-- end panel body -->
+				</div> <!-- end panel -->
+			</div>					
+		</div>
 	</div>
-</div>
 <% end %>

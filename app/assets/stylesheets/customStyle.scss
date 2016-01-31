@@ -8,22 +8,40 @@ body{
 	overflow-x: hidden;
 }
 
+
 $primary-color: #3184CC;
 $seconday-color: #2b2;
 $tertiary-color: #edd41b;
-$light-gray: #f0f0f0;
+$light-gray: #f5f5f5;
+
+a:hover{
+	text-decoration: none;
+	color: $seconday-color;
+}
+a:focus{
+	text-decoration: none;
+	color: $tertiary-color;
+	background-color: transparent;
+}
 
 /*Spacers*/
 .spacer-top-sm{
  margin-top: 15px;
 }
 
+.spacer-top-sm-2{
+ margin-top: 25px;
+}
 .spacer-top-md{
  margin-top: 50px;
 }
 
 .spacer-top-lg{
  margin-top: 75px;
+}
+
+.clear-padding-top{
+	padding-top: 0;
 }
 
 /*End Spacers*/
@@ -344,11 +362,17 @@ margin-bottom: -5%;
 }
 /* events-container Class Shared with Register Page*/
 
+.custom-icon{
+	font-size: 1.2em;
+	color: $seconday-color;
+	padding: 10px;
+}
+.sub-title{
+	font-size: 1.2em;
+}
 .title-line{
 	background-color: $light-gray;
-}
-.title-line-button{
-	margin-top: 12px;
+	border-radius: 10px;
 
 }
 
@@ -361,14 +385,14 @@ margin-bottom: -5%;
 .events-container{
 	max-width: 1200px;
 	margin: 0 auto;
-	background-color: #f0f0f0;
+	background-color: $light-gray;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 .regular-container{
 	max-width: 1200px;
 	margin: 0 auto;
-	background-color: #f0f0f0;
+	background-color: $light-gray;
 	margin-top: 25px;
 	margin-bottom: 10px;
 }
@@ -415,7 +439,7 @@ margin-bottom: -5%;
 	text-align: center;
 }
 .footer{
-	background-color: #f0f0f0;
+	background-color: $light-gray;
 	width: 100%;
 	padding-top: 20px;
 	margin-top: 20px;
@@ -453,7 +477,7 @@ margin-bottom: -5%;
 .selectRegistrationContainer{
 	max-width: 1200px;
 	margin: 0 auto;
-	background-color: #f0f0f0;
+	background-color: $light-gray;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -485,7 +509,7 @@ margin-bottom: -5%;
 	padding: 0;
 }
 .eventDetails{
-	background-color: #f0f0f0;
+	background-color: $light-gray;
 	box-sizing:border-box;
 	padding: 10px;
 	border-right: solid;

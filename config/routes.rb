@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   end
   resource :cart, only: [:show]
   resources :orders
-  resources :events, only: [:new, :show, :edit]
-  resources :options, only: [:new, :show, :edit]
+  resources :events
+  resources :options
   resources :reservations
   resources :charges
-  resources :purchases, only: [:new, :show, :edit]
+  resources :purchases
  #get 'purchase' => 'purchase#show'
   
 

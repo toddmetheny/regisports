@@ -1,0 +1,5 @@
+
+$("#customflash").addClass('error-alert-delete').removeClass('hide')
+$("#customflash").animate({opacity:1, display:"block", height:"70px"},500);
+location.reload(); 
+$("#shopping-cart").html("<%= escape_javascript(render 'carts/shopping_cart') %>")

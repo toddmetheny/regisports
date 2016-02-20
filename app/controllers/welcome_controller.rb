@@ -14,6 +14,7 @@ class WelcomeController < ApplicationController
 
 	def allevents
 		@events = Event.all	
+		@contact = Contact.new
 	end	
 
 

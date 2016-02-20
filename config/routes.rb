@@ -8,7 +8,7 @@ Rails.application.routes.draw do
    # resources :contacts, only: [:show, :index]
   end
   resource :cart, only: [:show]
-  resources :orders, only: [:new, :show, :edit]
+  resources :orders
   resources :events, only: [:new, :show, :edit]
   resources :options, only: [:new, :show, :edit]
   resources :reservations

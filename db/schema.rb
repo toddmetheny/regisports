@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220170634) do
+ActiveRecord::Schema.define(version: 20160220200719) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160220170634) do
     t.integer  "imagebig_file_size"
     t.datetime "imagebig_updated_at"
     t.text     "longdescription"
+    t.boolean  "active"
   end
 
   create_table "options", force: :cascade do |t|

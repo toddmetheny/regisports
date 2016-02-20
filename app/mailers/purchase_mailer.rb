@@ -6,7 +6,7 @@ class PurchaseMailer < ActionMailer::Base
 	@purchase = purchase
 	@url = 'http://www.regisport.run'
 	@order = Order.find(@purchase.order_id)
-	mail(to: purchase.customer_email, bcc: 'antonio@antoniosantoni.com' , subject: 'Your Regisport.run order')
+	mail(to: purchase.customer_email, bcc: 'events@regisport.run' , subject: 'Your Regisport.run order')
   end
 
 

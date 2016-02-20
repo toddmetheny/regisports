@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
 
+  resources :contacts, only: [:new, :show, :edit]
   resources :roles
   devise_for :users
   scope '/admin' do
     resources :users
+   # resources :contacts, only: [:show, :index]
   end
   resource :cart, only: [:show]
-  resources :orders   
-  resources :events
-  resources :options
+  resources :orders, only: [:new, :show, :edit]
+  resources :events, only: [:new, :show, :edit]
+  resources :options, only: [:new, :show, :edit]
   resources :reservations
   resources :charges
-  resources :purchases
+  resources :purchases, only: [:new, :show, :edit]
  #get 'purchase' => 'purchase#show'
   
 
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'allevents' => 'welcome#allevents'
   get 'dashboard' => 'dashboard#index'
+  get 'thankyou' => 'welcome#thankyou'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,6 +1,7 @@
 <h1>Thanks for your order</h1>
 <h3>Confirmation number: <span class="primary-color"><%= @purchase.uuid %></span></h3>
-<h3>Your Registrations:</h3>
+<h3>Order total: <span class="primary-color"><%= number_to_currency(@purchase.amount.to_d / 100) %></span></h3>
+<h3>Your Registrations: </h3>
 <% @order.reservations.each do |reservation| %>
 	<h4>Name: <%= reservation.name %> <%= reservation.lastname %> </h4>
 	<h4>T-Shirt: <%= reservation.shirt %> Team: <%= reservation.team %> </h4>

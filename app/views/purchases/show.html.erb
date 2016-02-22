@@ -7,7 +7,7 @@
 		<p>We sent you a copy of this receipt to your email: <%= @purchase.customer_email %></p>
 		<h3>Confirmation number: <span class="primary-color"><%= @purchase.uuid %></span></h3>
 		<h3>Order Email: <%= @purchase.customer_email %> </h3>
-		<h3>Order total: <%= cents_to_dollars %> </h3>
+		<h3>Order total: <%= cents_to_dollars(@purchase) %> </h3>
 		
 	</div>
 </div>

@@ -36,7 +36,7 @@
 		</div>
 
 	</div>
-</div>
+</div><!-- EVENT DESKTOP AND MOBILE -->
 <hr>
 <div class="container-fluid events-container">
 	<div class="row">
@@ -53,29 +53,29 @@
 		</tr>
 		<% @options.each do |option| %>
 			<tr>			
-			<td><%= option.title %></td>
-			<td><%= option.event.title %></td>
-			<td><%= option.price %></td>
-			<td><%= link_to 'details', option %> |
-				<%= link_to 'edit', edit_option_path(option) %> |
-				<%= link_to 'delete', option_path(option), method: :delete, data: { confirm: 'Are you sure?' } %>
-			</td>
-			</td>
+				<td><%= option.title %></td>
+				<td><%= option.event.title %></td>
+				<td><%= option.price %></td>
+				<td><%= link_to 'details', option %> |
+					<%= link_to 'edit', edit_option_path(option) %> |
+					<%= link_to 'delete', option_path(option), method: :delete, data: { confirm: 'Are you sure?' } %>
+				</td>
 			</tr>
 		<% end %>
-		<tr><td colspan="4"></td></tr>
+		<tr>
+			<td colspan="4"></td>
+		</tr>
 	</table>
 		<div class="row">
-		<div class="col-sm-12">
-			<%= link_to 'New Event Option', new_option_path, class: 'btn btn-lg btn-primary' %>
-			<hr>
+			<div class="col-sm-12">
+				<%= link_to 'New Event Option', new_option_path, class: 'btn btn-lg btn-primary' %>
+				<hr>
+			</div>
 		</div>
-
-	</div>
-</div>
+</div> <!-- options desktop and mobile -->
 <hr>
 <!-- Reservations -->
-<div class="container-fluid events-container">
+<div class="container-fluid events-container hidden-xs">
 	<div class="row">
 		<div class="col-sm-12">
 			<h1>Registrations</h1>
@@ -113,10 +113,39 @@
 			<hr>
 		</div>
 	</div>
-</div>
-
+</div> <!-- Reservations Desktop-->
+<div class="container-fluid events-container visible-xs-block">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Registrations</h1>
+		</div>
+	</div>
+	<table class="table">
+		<tr>
+			<th>email</th>
+			<th>event</th>
+			<th>date</th>
+			<th>manage</th>
+		</tr>
+		<% @reservations.each do |reservation| %>
+			<tr>			
+			<td><%= reservation.email %></td>	
+			<td><%= reservation.option.title %></td>
+			<td><%= reservation.created_at.strftime("%m/%d/%Y") %></td>
+			<td><%= link_to 'details', reservation %></td>
+			</tr>
+		<% end %>
+		<tr><td colspan="7"></td></tr>
+	</table>
+	<div class="row">
+		<div class="col-sm-12">
+			
+			<hr>
+		</div>
+	</div>
+</div> <!-- Reservations Mobile-->
 <!-- Purchases -->
-<div class="container-fluid events-container">
+<div class="container-fluid events-container hidden-xs">
 	<div class="row">
 		<div class="col-sm-12">
 			<h1>Purchases</h1>
@@ -154,7 +183,41 @@
 			<hr>
 		</div>
 	</div>
-</div>
+</div> <!-- PURCHASES DESKTOP -->
+<div class="container-fluid events-container visible-xs-block">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>Purchases</h1>
+		</div>
+	</div>
+	<table class="table">
+		<tr>
+			<th>email</th>
+			<th>amount</th>
+			<th>order</th>
+			<th>id</th>
+			<th>date</th>
+			<th>manage</th>
+		</tr>
+		<% @purchases.each do |purchase| %>
+			<tr>			
+			<td><%= purchase.customer_email %></td>
+			<td><%= cents_to_dollars(purchase) %></td>
+			<td><%= link_to purchase.order_id, orders_path %></td>
+			<td><%= purchase.created_at.strftime("%m/%d/%Y") %></td>			
+			<td><%= link_to 'details', purchase %>
+			</td>
+			</tr>
+		<% end %>
+		<tr><td colspan="7"></td></tr>
+	</table>
+	<div class="row">
+		<div class="col-sm-12">
+			
+			<hr>
+		</div>
+	</div>
+</div> <!-- PURCHASES MOBILE -->
 <div class="container-fluid events-container">
 	<div class="row">
 		<div class="col-sm-12">

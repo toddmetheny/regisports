@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
 def show
 	@purchase = Purchase.find_by_uuid(params[:id])
 	@order = Order.find(@purchase.order_id)
-	PurchaseMailer.purchase(@purchase).deliver_now
+
   reset_session
 
 end

@@ -28,14 +28,14 @@ class ChargesController < ApplicationController
 	  purchase = Purchase.create(customer_email: params[:stripeEmail], amount: (@amount),
 	   customer_card: params[:stripeToken], order_id: (@order.id), customer_id: customer.id)
 
-	  
+
 	 
 	if charge.save
-		@order_id = @order.update_attributes(order_status_id: 2)
+		@order_id = @order.update_attributes(order_status_id: 2)	
 		#redirect_to @order
 		redirect_to purchase
 		reset_session
-		
+
 	end   
 
 	rescue Stripe::CardError => e

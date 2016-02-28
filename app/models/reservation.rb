@@ -75,6 +75,7 @@ class Reservation < ActiveRecord::Base
 		end
 	end
 	def set_default_status
+		!self.reservation_status_id?
 		self.reservation_status_id = default_status
 			
 	end	

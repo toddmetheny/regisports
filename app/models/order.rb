@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
   before_save :update_total
 
   def self.search(search)
-    where("id like ?", "%#{search}%")
+    where("cast(id as text) like ?", "%#{search}%")
     # if search
     #   find(:all, :conditions => ['id LIKE ?', "%#{search}%"])
 

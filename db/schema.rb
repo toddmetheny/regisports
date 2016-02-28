@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220200719) do
+ActiveRecord::Schema.define(version: 20160227213049) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -113,6 +113,12 @@ ActiveRecord::Schema.define(version: 20160220200719) do
 
   add_index "purchases", ["order_id"], name: "index_purchases_on_order_id"
 
+  create_table "reservation_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
@@ -124,16 +130,18 @@ ActiveRecord::Schema.define(version: 20160220200719) do
     t.string   "shirt"
     t.string   "redeemcode"
     t.integer  "option_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.decimal  "price",      precision: 12, scale: 3
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.decimal  "price",                 precision: 12, scale: 3
     t.integer  "order_id"
     t.decimal  "tax"
     t.decimal  "shipping"
+    t.integer  "reservation_status_id"
   end
 
   add_index "reservations", ["option_id"], name: "index_reservations_on_option_id"
   add_index "reservations", ["order_id"], name: "index_reservations_on_order_id"
+  add_index "reservations", ["reservation_status_id"], name: "index_reservations_on_reservation_status_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"

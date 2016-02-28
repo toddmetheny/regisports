@@ -1,10 +1,13 @@
 class Reservation < ActiveRecord::Base
 	belongs_to :option
 	belongs_to :order
+	belongs_to :reservation_status
 	has_one :event, :through => :option
+	before_create :set_default_status
 	before_save :set_event_options
 	before_save :set_default_team
 	before_save :set_default_redeem_code
+
 	validates :name, presence: true
 	validates :lastname, presence: true
 	validates :age, presence: true
@@ -26,13 +29,20 @@ class Reservation < ActiveRecord::Base
 	    end
 	end
 
+
+
 	def default_team
 		self.team = 'N/A'
 	end
+
 	def default_redeem_code
 		self.redeemcode = 'N/A'
 	end	
-
+	
+	def default_status
+		self.reservation_status_id = 1
+	end	
+	
 	def reservation_price
 		self[:price] = option.price + option.fee
 	end
@@ -44,6 +54,7 @@ class Reservation < ActiveRecord::Base
 	def reservation_tax
 		self[:tax] = option.tax
 	end
+
 
 	private
 
@@ -62,6 +73,11 @@ class Reservation < ActiveRecord::Base
 		if !self.redeemcode?
 		   self[:redeemcode]= default_redeem_code
 		end
+	end
+	def set_default_status
+		self.reservation_status_id = default_status
+			
 	end	
+
 
 end

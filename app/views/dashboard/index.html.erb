@@ -85,6 +85,7 @@
 		<tr>
 			<th>name</th>
 			<th>lastname</th>
+			<th>order id</th>
 			<th>email</th>
 			<th>phone</th>
 			<th>event</th>
@@ -95,6 +96,7 @@
 			<tr>			
 			<td><%= reservation.name %></td>
 			<td><%= reservation.lastname %></td>
+			<td><%= link_to reservation.order_id, orders_path %></td>
 			<td><%= reservation.email %></td>
 			<td><%= reservation.phone %></td>
 			<td><%= reservation.event.title %></td>			

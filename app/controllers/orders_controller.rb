@@ -4,8 +4,13 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    # @orders = Order.all
     authorize! :read, @orders
+    if params[:search]
+      @orders = Order.search(params[:search])
+    else
+      @orders = Order.all
+    end
   end
 
   # GET /orders/1

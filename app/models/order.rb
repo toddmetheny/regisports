@@ -10,6 +10,15 @@ class Order < ActiveRecord::Base
   before_save :update_tax
   before_save :update_total
 
+  def self.search(search)
+    where("id like ?", "%#{search}%")
+    # if search
+    #   find(:all, :conditions => ['id LIKE ?', "%#{search}%"])
+
+    # else
+    #   find(:all)
+    # end 
+  end
   def to_param
      uuid
    end

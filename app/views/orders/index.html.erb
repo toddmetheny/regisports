@@ -1,9 +1,21 @@
+
+
 <div class="container-fluid events-container">
 	<div class="row">
 		<div class="col-sm-12">
 			<h1>Orders</h1>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-sm-12 form-group">
+			<%= form_tag orders_path, :method => 'get', class:"" do %>
+			<p>
+				<%= text_field_tag :search, params[:search] %>
+				<%= submit_tag "Search", :name => nil, class:"btn btn-primary" %>
+			</p>
+			<% end %>
+		</div>
+	</div>	
 	<table class="table">
 		<tr>
 			<th>Order Id</th>

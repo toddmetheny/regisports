@@ -6,12 +6,40 @@ class OrdersController < ApplicationController
   def index
     # @orders = Order.all
     authorize! :read, @orders
-    if params[:search]
-      @orders = Order.search(params[:search])
+    @order_statuses = OrderStatus.all
+    if params[:search_by_status]
+      @orders = Order.search_by_status(params[:search_by_status])
+    elsif params[:search]
+       @orders = Order.search(params[:search])   
     else
       @orders = Order.all
     end
+
   end
+
+# 3/2/16
+#     def index
+#     # @orders = Order.all
+#     authorize! :read, @orders
+#     @order_statuses = OrderStatus.all
+#     if params[:search]
+#       @orders = Order.search(params[:search])
+#     elsif params[:search_by_status]
+#       @orders = Order.search(params[:search_by_status])
+#     else
+#       @orders = Order.all
+#     end
+
+#   end
+# CODE POSTED IN STACK OVERFLOW
+  # def index
+  #   @order_statuses = OrderStatus.all
+  #   if params[:search]
+  #     @orders = Order.search(params[:search])
+  #   else
+  #     @orders = Order.all
+  #   end
+  # end
 
   # GET /orders/1
   # GET /orders/1.json
@@ -27,6 +55,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+
   end
 
   # POST /orders

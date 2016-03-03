@@ -11,18 +11,19 @@ class Order < ActiveRecord::Base
   before_save :update_total
 
   def self.search(search)
-    where("cast(id as text) like ?", "%#{search}%")
-    # if search
-    #   find(:all, :conditions => ['id LIKE ?', "%#{search}%"])
+    where("cast(id as text) LIKE ?", "%#{search}%")
+    #where("cast(id as text) LIKE ? OR order_status_id LIKE ? ", "%#{search}%", "%#{search}%")
 
-    # else
-    #   find(:all)
-    # end 
   end
+  def self.search_by_status(search)
+      where("cast(order_status_id as text) LIKE ? ", "%#{search}%").order("created_at desc")
+  end  
   def to_param
      uuid
    end
-
+# def order_status
+#     self.order_status_id
+# end
   def subtotal
     reservations.collect{ |r| r.price }.sum
   end

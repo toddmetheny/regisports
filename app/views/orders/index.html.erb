@@ -7,15 +7,24 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-12 form-group">
+ 		<div class="col-sm-6 form-group">
 			<%= form_tag orders_path, :method => 'get', class:"" do %>
 			<p>
 				<%= text_field_tag :search, params[:search] %>
 				<%= submit_tag "Search", :name => nil, class:"btn btn-primary" %>
 			</p>
 			<% end %>
+		</div> 
+	
+ 		<div class="col-sm-6 form-group">
+			<%= form_tag orders_path, :method => 'get', class:"" do %>
+			<p>
+				<%= select_tag :search_by_status, options_from_collection_for_select(OrderStatus.all, :id, :name, params[:search_by_status])  %>
+				<%= submit_tag "Search", :name => nil, class:"btn btn-primary" %>
+			</p>
+			<% end %>
 		</div>
-	</div>	
+	</div>
 	<table class="table">
 		<tr>
 			<th>Order Id</th>

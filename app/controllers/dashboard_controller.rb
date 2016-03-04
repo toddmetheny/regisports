@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+
   def index
   	@events = Event.all
   	@options = Option.all
@@ -8,6 +9,11 @@ class DashboardController < ApplicationController
     authorize! :read, [@events, @options, @reservations]
   end
 
+def event_admin
+  @event = Event.find(params[:event])
+  @options = @event.options
+  
+end
   def search
   	@events = Event.all
   	@options = Option.all

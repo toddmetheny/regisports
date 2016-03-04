@@ -1,0 +1,62 @@
+<div class="container-fluid events-container-no-pad spacer-top-sm-2">
+  <%= image_tag(@event.imagebig, class: 'img-responsive') %>
+</div>
+<div class="container-fluid events-container">
+  <div class="row">
+
+    <div class="col-sm-6 col-md-4 col-lg-4 eventBanner">
+        <div class="panel">
+          <div class="panel-heading">
+            <%= image_tag(@event.image, class: 'img-responsive') %>
+          </div>
+          <div class="panel-body">
+            <h4>Event Details:</h4>
+            <h5>Organizer: <%= @event.organizer %></h5>
+            <h5>Phone: <%= @event.phone %></h5>
+            <h5>Email: <%= @event.email %></h5>
+            <h5>Website: <%= @event.website %> </h5>
+            <h5>Location: <%= @event.venue %></h5>
+            <h5><%= @event.address %> <%= @event.city %>, <%= @event.state %> <%= @event.zipcode %></h5>
+          </div>
+<!--           <div class="panel-footer text-center">
+
+          </div> -->
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-8 eventInfo">
+    <span><h2><%= @event.title %></h2></span>
+    <span><h2><%= @event.date.strftime('%b %d') %> <%= @event.startTime %> - <%= @event.city %> <%= @event.state %></h2></span>
+    <p><%=raw @event.longdescription %></p>
+  </div>
+    <div class="col-sm-6 col-md-6 col-lg-4" >
+    </div>
+  </div>  
+  <% @options.each_slice(1) do |option| %>
+    <div class="panel"> 
+      <% option.each do |item| %>
+          <div class="panel-body clear-padding-top">
+            <div class="row">
+              <div class="col-sm-6 text-left">
+                <h1><%= item.title %></h1>
+                <h4>Price: <%= number_to_currency(item.price) %> </h4>
+                <h4>Service Fee: <%= number_to_currency(item.fee) %></h4>
+              </div>
+              <div class="col-sm-6 text-left">
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                 <p><%= raw item.description %></p>   
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <%= link_to 'Select', option_path(option), :class => 'btn btn-lg btn-primary' %>
+          </div>
+      <% end %>
+    </div>
+  <% end %>
+ 
+</div>
+

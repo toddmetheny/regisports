@@ -1,4 +1,5 @@
 <div class="container-fluid events-container-no-pad spacer-top-sm-2">
+<%= link_to "event admin", eventadmin_path(:event => @event.id) %>
   <%= image_tag(@event.imagebig, class: 'img-responsive') %>
 </div>
 <div class="container-fluid events-container">

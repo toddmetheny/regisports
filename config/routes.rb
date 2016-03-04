@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'allevents' => 'welcome#allevents'
   get 'dashboard' => 'dashboard#index'
+  get 'eventadmin' => 'dashboard#event_admin'
   get 'thankyou' => 'welcome#thankyou'
   get 'search' => 'dashboard#search'
   # The priority is based upon order of creation: first created -> highest priority.

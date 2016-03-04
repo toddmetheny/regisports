@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227213049) do
+ActiveRecord::Schema.define(version: 20160304012022) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -50,7 +50,10 @@ ActiveRecord::Schema.define(version: 20160227213049) do
     t.datetime "imagebig_updated_at"
     t.text     "longdescription"
     t.boolean  "active"
+    t.integer  "user_id"
   end
+
+  add_index "events", ["user_id"], name: "index_events_on_user_id"
 
   create_table "options", force: :cascade do |t|
     t.string   "title"

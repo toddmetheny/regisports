@@ -29,8 +29,6 @@ class Reservation < ActiveRecord::Base
 	    end
 	end
 
-
-
 	def default_team
 		self.team = 'N/A'
 	end

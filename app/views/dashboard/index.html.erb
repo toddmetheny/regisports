@@ -90,6 +90,7 @@
 			<th>phone</th>
 			<th>event</th>
 			<th>event option</th>
+			<th>status</th>
 			<th>manage</th>
 		</tr>
 		<% @reservations.each do |reservation| %>
@@ -101,13 +102,14 @@
 			<td><%= reservation.phone %></td>
 			<td><%= reservation.event.title %></td>			
 			<td><%= reservation.option.title %></td>
+			<td><%= reservation.reservation_status.name %></td>
 			<td><%= link_to 'details', reservation %> |
 				<%= link_to 'edit', edit_reservation_path(reservation) %> |
 				<%= link_to 'delete', reservation_path(reservation), method: :delete, data: { confirm: 'Are you sure?' } %>
 			</td>
 			</tr>
 		<% end %>
-		<tr><td colspan="7"></td></tr>
+		<tr><td colspan="9"></td></tr>
 	</table>
 	<div class="row">
 		<div class="col-sm-12">

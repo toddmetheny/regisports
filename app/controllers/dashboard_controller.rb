@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  before_action :authenticate_user!
 
   def index
   	@events = Event.all
@@ -12,6 +13,9 @@ class DashboardController < ApplicationController
 def event_admin
   @event = Event.find(params[:event])
   @options = @event.options
+  @reservations = @event.reservations.where('reservation_status_id = 1')
+  # @reservations = @event.Reservation.where('reservation_status_id = 1')
+  @orders = @event.orders
   
 end
   def search

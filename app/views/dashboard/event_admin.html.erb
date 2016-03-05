@@ -1,14 +1,22 @@
-<% if @event.user == current_user || current_user.role.name = "admin" %>
-<h1>Hello</h1>  <p><%= @event.user.email %></p>
-<% end %>
-
 <div class="container-fluid events-container-no-pad spacer-top-sm-2">
-  <%= image_tag(@event.imagebig, class: 'img-responsive') %>
-  
+	<% if @event.user.id == current_user.id || current_user.role.name == "admin" %>
+			<% @options.each do |option| %>
+				<tr>			
+					<td><%= option.title %></td>
+					<td><%= option.event.title %></td>
+					<td><%= option.price %></td>
+					<td><%= link_to 'details', option %> |
+						<%= link_to 'edit', edit_option_path(option) %> |
+						<%= link_to 'delete', option_path(option), method: :delete, data: { confirm: 'Are you sure?' } %>
+					</td>
+				</tr>
+			<% end %>
+	<% end %>
+	<h4>Total Created Registrations: <%= @reservations.count %></h4>
+	<h4>Total Orders: <%= @orders.count %></h4>  
 </div>
 <div class="container-fluid events-container">
   <div class="row">
-
     <div class="col-sm-6 col-md-4 col-lg-4 eventBanner">
         <div class="panel">
           <div class="panel-heading">
@@ -23,16 +31,13 @@
             <h5>Location: <%= @event.venue %></h5>
             <h5><%= @event.address %> <%= @event.city %>, <%= @event.state %> <%= @event.zipcode %></h5>
           </div>
-<!--           <div class="panel-footer text-center">
-
-          </div> -->
         </div>
     </div>
     <div class="col-sm-6 col-md-6 col-lg-8 eventInfo">
-    <span><h2><%= @event.title %></h2></span>
-    <span><h2><%= @event.date.strftime('%b %d') %> <%= @event.startTime %> - <%= @event.city %> <%= @event.state %></h2></span>
-    <p><%=raw @event.longdescription %></p>
-  </div>
+	    <span><h2><%= @event.title %></h2></span>
+	    <span><h2><%= @event.date.strftime('%b %d') %> <%= @event.startTime %> - <%= @event.city %> <%= @event.state %></h2></span>
+	    <p><%=raw @event.longdescription %></p>
+	  </div>
     <div class="col-sm-6 col-md-6 col-lg-4" >
     </div>
   </div>  
@@ -62,5 +67,4 @@
       <% end %>
     </div>
   <% end %>
- 
 </div>

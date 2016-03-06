@@ -53,7 +53,22 @@ class Reservation < ActiveRecord::Base
 		self[:tax] = option.tax
 	end
 
-
+	def self.reservations_created
+		where('reservation_status_id = 1')	
+	end
+	def self.reservations_cancelled
+		where('reservation_status_id = 2')	
+	end
+	def self.reservations_refunded
+		where('reservation_status_id = 3')	
+	end
+	def self.reservations_checkedin
+		where('reservation_status_id = 4')	
+	end				
+	def self.reservations_confirmed
+		where('reservation_status_id = 5')	
+	end	
+		
 	private
 
 	def set_event_options

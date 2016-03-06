@@ -12,7 +12,11 @@
 				</tr>
 			<% end %>
 	<% end %>
-	<h4>Total Created Registrations: <%= @reservations.count %></h4>
+	<h4>Total "Created" Registrations: <%= @reservations_created.count %></h4>
+  <h4>Total Confirmed Registrations: <%= @reservations_confirmed.count %></h4>
+  <h4>Total Cancelled Registrations: <%= @reservations_cancelled.count %></h4>
+  <h4>Total Refunded Registrations: <%= @reservations_refunded.count %></h4>
+  <h4>Total Checked-In: <%= @reservations_checkedin.count %></h4>
 	<h4>Total Orders: <%= @orders.count %></h4>
 	<h4>Total Charged: <%= number_to_currency(@orders.collect{ |o| o.total }.sum.to_d ) %></h4>
 	<% @orders.each do |order| %>

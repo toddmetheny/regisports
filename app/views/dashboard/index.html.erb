@@ -23,7 +23,8 @@
 			<td><%= event.date.strftime('%b %d') %>, <%= event.city %> <%= event.state %></td>
 			<td><%= link_to 'details', event_path(event) %> |
 				<%= link_to 'edit', edit_event_path(event) %> |
-				<%= link_to 'delete', edit_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to 'delete', edit_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %> |
+				<%= link_to "event admin", eventadmin_path(:event => event.id) %>
 			</td>
 			</tr>
 		<% end %>

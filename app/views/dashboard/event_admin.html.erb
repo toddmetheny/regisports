@@ -21,7 +21,8 @@
 	<h4>Total Charged: <%= number_to_currency(@orders.collect{ |o| o.total }.sum.to_d ) %></h4>
 	<% @orders.each do |order| %>
 		<%= order.total %>
-	<% end %>   
+	<% end %>
+  <h4>Total Charged: <%= number_to_currency(@reservations_created.collect{ |o| o.price }.sum.to_d ) %></h4>   
 </div>
 <div class="container-fluid events-container">
   <div class="row">

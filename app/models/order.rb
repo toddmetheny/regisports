@@ -9,6 +9,7 @@ class Order < ActiveRecord::Base
   before_save :update_shipping
   before_save :update_tax
   before_save :update_total
+  after_update :update_reservations
 
   def self.search(search)
     where("cast(id as text) LIKE ?", "%#{search}%")
@@ -24,6 +25,11 @@ class Order < ActiveRecord::Base
 # def order_status
 #     self.order_status_id
 # end
+  # def update_reservations_status
+  #   if self.order_status_id == 2
+  #     reservations.update_status_completed
+  #   end     
+  # end
   def subtotal
     reservations.collect{ |r| r.price }.sum
   end
@@ -56,6 +62,11 @@ class Order < ActiveRecord::Base
      self.uuid = SecureRandom.uuid
    end
 private
+  def self.update_reservations
+    if self.order_status_id == 2
+      Reservation.update_status_completed
+    end  
+  end
   def set_order_status
     self.order_status_id = 1
   end

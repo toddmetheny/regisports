@@ -1,17 +1,18 @@
 <div class="container-fluid events-container-no-pad spacer-top-sm-2">
 	<% if @event.user.id == current_user.id || current_user.role.name == "admin" %>
+      <h1><%= @event.title %></h1>
+      <h4>Registration options:</h4>
 			<% @options.each do |option| %>
 				<tr>			
 					<td><%= option.title %></td>
 					<td><%= option.event.title %></td>
 					<td><%= option.price %></td>
-					<td><%= link_to 'details', option %> |
-						<%= link_to 'edit', edit_option_path(option) %> |
-						<%= link_to 'delete', option_path(option), method: :delete, data: { confirm: 'Are you sure?' } %>
+					<td><%= link_to 'details', option %> | <%= link_to 'edit', edit_option_path(option) %>
 					</td>
 				</tr>
 			<% end %>
 	<% end %>
+  <hr>
 	<h4>Total "Created" Registrations: <%= @reservations_created.count %></h4>
   <h4>Total Confirmed Registrations: <%= @reservations_confirmed.count %></h4>
   <h4>Total Cancelled Registrations: <%= @reservations_cancelled.count %></h4>

@@ -28,7 +28,6 @@ class Reservation < ActiveRecord::Base
 	      errors.add(:order, "is not a valid order.")
 	    end
 	end
-
 	def default_team
 		self.team = 'N/A'
 	end
@@ -40,7 +39,11 @@ class Reservation < ActiveRecord::Base
 	def default_status
 		self.reservation_status_id = 1
 	end	
-	
+
+	def self.update_status_completed
+		self.reservation_status_id = 5
+	end	
+
 	def reservation_price
 		self[:price] = option.price + option.fee
 	end

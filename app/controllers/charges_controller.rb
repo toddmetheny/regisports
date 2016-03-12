@@ -9,7 +9,7 @@ class ChargesController < ApplicationController
 	  @reservations = @order.reservations
 	  @total_amount = @order.total * 100
 	  @total_convert = @total_amount.to_i
-	  @amount = @total_convert
+	  @amount = @total_convert  
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
@@ -31,7 +31,8 @@ class ChargesController < ApplicationController
 
 	 
 	if charge.save
-		@order_id = @order.update_attributes(order_status_id: 2)	
+		@order_id = @order.update_attributes(order_status_id: 2)
+		@reservations = @order.reservations.update_attribute(reservations_status_id: 5)	
 		#redirect_to @order
 		redirect_to purchase
 		reset_session
